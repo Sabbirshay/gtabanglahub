@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import articles from '../../data/articles.json';
+---
+<BaseLayout title="খবর" description="GTA VI-এর সর্বশেষ যাচাইকৃত খবর, অফিসিয়াল আপডেট ও বাংলা বিশ্লেষণ।">
+  <section class="page-hero container"><p class="kicker">নিউজরুম</p><h1>খবর ও আপডেট</h1><p>অফিসিয়াল উৎস, প্রকাশের তারিখ এবং যাচাই অবস্থা প্রতিটি খবরে স্পষ্টভাবে দেওয়া থাকে।</p></section>
+  <section class="section container"><div class="article-grid">{articles.map((article) => <ArticleCard article={article} />)}</div></section>
+</BaseLayout>

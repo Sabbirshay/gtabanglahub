@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import articles from '../../data/articles.json';
+
+export function getStaticPaths() {
+  return articles.map((article) => ({ params: { slug: article.slug }, props: { article } }));
+}
+const { article } = Astro.props;
+---
+<BaseLayout title={article.title} description={article.excerpt} path={`/news/${article.slug}/`} type="article">
+  <article class="article-page container">
+    <header>
+      <div class="eyebrow"><span>{article.category}</span>{article.verified && <span class="verified">যাচাইকৃত</span>}</div>
+      <h1>{article.title}</h1>
+      <p class="article-deck">{article.excerpt}</p>
+      <div class="meta"><time datetime={article.isoDate}>{article.published}</time><span>{article.readTime}</span></div>
+    </header>
+    <div class="article-content">
+      <aside class="source-box"><strong>তথ্যের উৎস</strong><a href={article.sourceUrl} rel={article.sourceUrl.startsWith('http') ? 'noopener noreferrer' : undefined}>{article.source} ↗</a><span>প্রকাশের সময় উৎসটি যাচাই করা হয়েছে।</span></aside>
+      {article.slug === 'gta-vi-now-available' ? (
+        <>
+          <p>Rockstar Games-এর অফিসিয়াল ঘোষণা অনুযায়ী Grand Theft Auto VI এখন পাওয়া যাচ্ছে। এই পাতায় আমরা শুধু প্রকাশকের নিশ্চিত করা তথ্যকে খবর হিসেবে ব্যবহার করেছি। কেনার আগে নিজের অঞ্চল, প্ল্যাটফর্ম এবং স্টোর তালিকা সরাসরি যাচাই করুন।</p>
+          <h2>খেলার আগে ছোট চেকলিস্ট</h2>
+          <ul><li>কনসোলে পর্যাপ্ত স্টোরেজ নিশ্চিত করুন।</li><li>অ্যাক্সেসিবিলিটি ও সাবটাইটেল সেটিংস আগে দেখে নিন।</li><li>অনলাইন পোস্টে স্পয়লার ট্যাগ ব্যবহার করুন।</li></ul>
+          <div class="spoiler-safe"><strong>স্পয়লার অবস্থা: নিরাপদ</strong><span>এই নিবন্ধে গল্প, মিশন বা চরিত্রের ফলাফল প্রকাশ করা হয়নি।</span></div>
+        </>
+      ) : article.slug === 'first-hours-checklist' ? (
+        <>
+          <p>প্রথম সেশনটি আরামদায়ক করতে ডিসপ্লে, অডিও, কন্ট্রোল ও অ্যাক্সেসিবিলিটি সেটিংস নিজের সুবিধামতো ঠিক করুন। অটো-সেভ সক্রিয় আছে কি না দেখে নিন এবং গুরুত্বপূর্ণ মুহূর্তে আলাদা ম্যানুয়াল সেভ রাখুন।</p>
+          <h2>গল্প না জেনেই যা করতে পারেন</h2>
+          <ul><li>কন্ট্রোল স্কিম ও ডেড-জোন পরীক্ষা করুন।</li><li>ম্যাপের লেজেন্ড বুঝে নিন, কিন্তু অচেনা মার্কার খুঁজে স্পয়লার নেবেন না।</li><li>ফটো বা ক্লিপ শেয়ার করলে স্পয়লার সতর্কতা দিন।</li></ul>
+          <div class="spoiler-safe"><strong>স্পয়লার অবস্থা: নিরাপদ</strong><span>কোনো মিশনের নাম, গল্পের মোড় বা গোপন লোকেশন নেই।</span></div>
+        </>
+      ) : (
+        <>
+          <p>GTA Bangla Hub-এ শিরোনাম বা প্রচ্ছদে গল্পের গুরুত্বপূর্ণ তথ্য প্রকাশ করা হয় না। প্রয়োজন হলে নিবন্ধের ভেতরে আগে স্পষ্ট সতর্কতা এবং স্পয়লারের মাত্রা দেওয়া হবে।</p>
+          <h2>আমাদের তিন স্তরের লেবেল</h2>
+          <ul><li><strong>নিরাপদ:</strong> গল্পের তথ্য নেই।</li><li><strong>হালকা:</strong> শুরুর দিকের সাধারণ প্রসঙ্গ থাকতে পারে।</li><li><strong>পূর্ণ:</strong> গুরুত্বপূর্ণ গল্প বা শেষের তথ্য রয়েছে।</li></ul>
+        </>
+      )}
+    </div>
+  </article>
+</BaseLayout>

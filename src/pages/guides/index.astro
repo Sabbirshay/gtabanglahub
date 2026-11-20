@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const guides = [
+  ['শুরু করুন', 'সেটিংস, কন্ট্রোল ও প্রথম সেশনের চেকলিস্ট', 'স্পয়লার-মুক্ত'],
+  ['অগ্রগতি', 'সেভ ও রিসোর্স ব্যবস্থাপনার মৌলিক ধারণা', 'হালকা স্পয়লার'],
+  ['অ্যাক্সেসিবিলিটি', 'ভিজ্যুয়াল, অডিও ও কন্ট্রোল অপশন বুঝে নিন', 'স্পয়লার-মুক্ত'],
+  ['কমিউনিটি', 'স্ক্রিনশট ও ক্লিপ দায়িত্বশীলভাবে শেয়ার করুন', 'স্পয়লার-মুক্ত'],
+];
+---
+<BaseLayout title="গাইড" description="বাংলায় GTA VI গাইড—স্পয়লার স্তর, যাচাই অবস্থা ও হালনাগাদের তারিখসহ।">
+  <section class="page-hero container"><p class="kicker">শিখুন নিজের গতিতে</p><h1>বাংলা গাইড</h1><p>প্রতিটি গাইডে স্পয়লার স্তর আগে থেকে দেখা যায়। অসম্পূর্ণ বা যাচাইাধীন তথ্য আমরা প্রকাশ করি না।</p></section>
+  <section class="section container"><div class="guide-grid">{guides.map(([title, description, spoiler], i) => <article class="guide-card"><span>0{i + 1}</span><div><small>{spoiler}</small><h2>{title}</h2><p>{description}</p><b>বিস্তারিত শিগগিরই</b></div></article>)}</div></section>
+</BaseLayout>
