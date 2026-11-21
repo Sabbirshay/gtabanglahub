@@ -38,6 +38,8 @@ This accelerated plan preserves the agreed feature, quality, security, SEO, and 
 - Define moderation, age-safety, harassment, piracy, leak, and takedown procedures before enabling user content.
 - Add rate limits, bot protection, validation, and audit logging to every write endpoint.
 
+**Status: implemented on 21 November 2026.** Client-side search now covers news, guides, locations, characters, vehicles, and weapons without sending queries to a server, and news pages surface related reading. The Community Desk generates validated email drafts without a site write endpoint or file upload, so no submission data is stored by the website. Moderation gates, prohibited content, consent, attribution, 30/90-day retention limits, privacy requests, and the inactive-newsletter rule are published before live intake. Any future write endpoint remains blocked until rate limiting, bot protection, validation, audit logging, and deletion operations are implemented.
+
 ## Day 6 — quality, SEO, security, and performance
 
 - Complete metadata, canonical URLs, robots, sitemap, structured data, redirects, 404s, image policy, and internal linking.

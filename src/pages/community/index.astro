@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="কমিউনিটি ও সংশোধন" description="GTA Bangla Hub-এ যাচাইকৃত তথ্য, সংশোধন ও নিরাপদ কমিউনিটি প্রস্তাব পাঠানোর নিয়ম।">
+  <section class="page-hero container">
+    <p class="kicker">প্রকাশের আগে মানব পর্যালোচনা</p>
+    <h1>কমিউনিটি ডেস্ক</h1>
+    <p>বিশ্বস্ত উৎসসহ তথ্য, গাইডের প্রস্তাব বা সংশোধন পাঠাতে পারেন। কোনো জমা সরাসরি প্রকাশ হয় না; সম্পাদক তথ্য, কপিরাইট, নিরাপত্তা, ভাষা ও স্পয়লার পরীক্ষা করেন।</p>
+    <div class="data-summary" aria-label="কমিউনিটি ডেস্কের নীতি">
+      <div><strong>০</strong><span>স্বয়ংক্রিয় প্রকাশ</span></div>
+      <div><strong>৫</strong><span>পর্যালোচনা ধাপ</span></div>
+      <div><strong>৩০ দিন</strong><span>প্রত্যাখ্যাত ইমেইল মুছতে সর্বোচ্চ সময়</span></div>
+    </div>
+  </section>
+
+  <section class="section container community-grid" aria-labelledby="submit-heading">
+    <div>
+      <p class="kicker">প্রস্তাব বা সংশোধন</p><h2 id="submit-heading">ইমেইল খসড়া তৈরি করুন</h2>
+      <p class="form-intro">এই ফর্ম কোনো সার্ভারে তথ্য পাঠায় না বা সংরক্ষণ করে না। জমা দিলে আপনার নিজের ইমেইল অ্যাপে একটি খসড়া খুলবে; পাঠানোর আগে আপনি সবকিছু আবার দেখতে পারবেন।</p>
+      <form class="community-form" data-community-form>
+        <label><span>অনুরোধের ধরন</span><select name="kind" required><option value="তথ্য বা গাইড প্রস্তাব">তথ্য বা গাইড প্রস্তাব</option><option value="সংশোধন">সংশোধন</option><option value="নিরাপত্তা বা হয়রানি রিপোর্ট">নিরাপত্তা বা হয়রানি রিপোর্ট</option><option value="কপিরাইট বা টেকডাউন">কপিরাইট বা টেকডাউন</option></select></label>
+        <label><span>বিষয়</span><input name="title" required maxlength="120" placeholder="সংক্ষিপ্ত ও স্পয়লার-মুক্ত বিষয়" /></label>
+        <label><span>সম্পর্কিত পাতা বা উৎসের URL</span><input name="source" type="url" required maxlength="500" placeholder="https://" /></label>
+        <label><span>বিস্তারিত</span><textarea name="details" required maxlength="2000" rows="7" placeholder="কী যোগ বা সংশোধন করা দরকার এবং উৎসটি কী প্রমাণ করে"></textarea><small>সর্বোচ্চ ২০০০ অক্ষর; ব্যক্তিগত তথ্য বা ফাইল দেবেন না।</small></label>
+        <div class="form-row"><label><span>স্পয়লার স্তর</span><select name="spoiler"><option>নিরাপদ</option><option>হালকা</option><option>পূর্ণ</option></select></label><label><span>নাম প্রকাশ</span><select name="credit"><option>বেনামী রাখুন</option><option>ইমেইলের নাম ব্যবহার করা যাবে</option></select></label></div>
+        <label class="consent"><input type="checkbox" name="consent" required /><span>আমি নিশ্চিত করছি যে তথ্যটি আইনসম্মতভাবে শেয়ার করা যায়, এতে ব্যক্তিগত/চুরি করা উপাদান নেই, এবং পর্যালোচনার জন্য ইমেইলটি সর্বোচ্চ ৯০ দিন রাখা হতে পারে।</span></label>
+        <button class="button" type="submit">ইমেইল খসড়া তৈরি করুন</button>
+        <p class="form-status" role="status" aria-live="polite" data-community-status></p>
+      </form>
+      <noscript><p class="data-note">ফর্ম ব্যবহার করতে জাভাস্ক্রিপ্ট প্রয়োজন। বিকল্পভাবে <a href="mailto:corrections@gtabanglahub.com">corrections@gtabanglahub.com</a>-এ সংশোধন পাঠান।</p></noscript>
+    </div>
+    <aside class="moderation-panel" aria-labelledby="moderation-heading">
+      <p class="kicker">প্রকাশের নিয়ম</p><h2 id="moderation-heading">মডারেশন গেট</h2>
+      <ol><li><strong>নিরাপত্তা</strong><span>ব্যক্তিগত তথ্য, হয়রানি ও ক্ষতির ঝুঁকি বাদ</span></li><li><strong>আইন ও অধিকার</strong><span>লিক, পাইরেসি ও অননুমোদিত ফাইল প্রত্যাখ্যান</span></li><li><strong>তথ্য</strong><span>প্রাথমিক উৎস ও দাবি মিলিয়ে দেখা</span></li><li><strong>স্পয়লার</strong><span>নিরাপদ শিরোনাম ও সঠিক সতর্কতা</span></li><li><strong>সম্পাদনা</strong><span>বাংলা ভাষা, কৃতিত্ব ও প্রকাশের সম্মতি</span></li></ol>
+      <div class="policy-callout"><h3>যা পাঠাবেন না</h3><ul><li>চুরি করা বা ব্যক্তিগত লিক</li><li>পাইরেটেড কপি, ক্র্যাক বা ডাউনলোড লিংক</li><li>হয়রানি, ঘৃণা বা হুমকি</li><li>অন্যের ঠিকানা, ফোন, অ্যাকাউন্ট বা ব্যক্তিগত কথোপকথন</li><li>অনুমতি ছাড়া কপিরাইটযুক্ত পূর্ণ মিডিয়া</li></ul></div>
+      <p class="mailbox-note">কমিউনিটি ঠিকানা: <strong>community@gtabanglahub.com</strong>। লাইভ গ্রহণের আগে ডোমেইনে ঠিকানাটি সক্রিয় ও পরীক্ষিত হতে হবে।</p>
+    </aside>
+  </section>
+
+  <section class="community-rules container" aria-labelledby="retention-heading">
+    <div><p class="kicker">ডেটা নিয়ন্ত্রণ</p><h2 id="retention-heading">সম্মতি ও রিটেনশন</h2></div>
+    <div class="rule-grid"><article><h3>প্রত্যাখ্যাত জমা</h3><p>প্রাথমিক সিদ্ধান্তের ৩০ দিনের মধ্যে ইমেইল ও সংযুক্ত ব্যক্তিগত তথ্য মুছে ফেলার লক্ষ্য।</p></article><article><h3>পর্যালোচনাধীন জমা</h3><p>সর্বোচ্চ ৯০ দিন রাখা হবে; আইনি বা নিরাপত্তা প্রয়োজন ছাড়া সময় বাড়ানো হবে না।</p></article><article><h3>প্রকাশিত অবদান</h3><p>প্রকাশিত তথ্য ও সম্মত কৃতিত্ব সম্পাদকীয় রেকর্ড হিসেবে থাকবে; অপসারণ চাইলে privacy ঠিকানায় অনুরোধ করা যাবে।</p></article><article><h3>নিউজলেটার</h3><p>এখন কোনো signup বা ইমেইল তালিকা নেই। নিশ্চিত opt-in, unsubscribe ও deletion ব্যবস্থা ছাড়া এটি চালু হবে না।</p></article></div>
+  </section>
+
+  <script is:inline>
+    (() => {
+      const form = document.querySelector('[data-community-form]');
+      const status = document.querySelector('[data-community-status]');
+      if (!form || !status) return;
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+        const data = new FormData(form);
+        const kind = String(data.get('kind') || 'কমিউনিটি প্রস্তাব');
+        const destination = kind === 'সংশোধন' ? 'corrections@gtabanglahub.com' : 'community@gtabanglahub.com';
+        const subject = `[GTA Bangla Hub] ${kind}: ${String(data.get('title') || '')}`;
+        const body = [`ধরন: ${kind}`, `বিষয়: ${data.get('title')}`, `উৎস/পাতা: ${data.get('source')}`, `স্পয়লার: ${data.get('spoiler')}`, `কৃতিত্ব: ${data.get('credit')}`, '', 'বিস্তারিত:', String(data.get('details') || '')].join('\n');
+        status.textContent = 'ইমেইল অ্যাপ খোলা হচ্ছে—পাঠানোর আগে প্রাপক ও লেখা যাচাই করুন।';
+        window.location.href = `mailto:${destination}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      });
+    })();
+  </script>
+</BaseLayout>

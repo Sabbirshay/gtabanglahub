@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import articles from '../../data/articles.json';
+import guides from '../../data/guides.json';
+import records from '../../data/database.json';
+import regions from '../../data/map-regions.json';
+
+const items = [
+  ...articles.map((item) => ({ type: 'খবর', title: item.title, description: item.excerpt, href: `/news/${item.slug}/`, tags: `${item.category} ${item.spoilerLevel}` })),
+  ...guides.map((item) => ({ type: 'গাইড', title: item.title, description: item.excerpt, href: `/guides/${item.slug}/`, tags: `${item.category} ${item.difficulty} ${item.spoilerLevel}` })),
+  ...regions.map((item) => ({ type: 'লোকেশন', title: item.banglaName, description: item.summary, href: `/map/#${item.slug}`, tags: `${item.name} ${item.kind}` })),
+  ...records.map((item) => ({ type: item.type === 'character' ? 'চরিত্র' : item.type === 'vehicle' ? 'যানবাহন' : 'অস্ত্র', title: item.banglaName, description: item.summary, href: `/database/#${item.slug}`, tags: `${item.name} ${item.spoilerLevel}` })),
+];
+---
+
+<BaseLayout title="সাইটে খুঁজুন" description="GTA Bangla Hub-এর খবর, গাইড, লোকেশন, চরিত্র, যানবাহন ও অস্ত্র এক জায়গা থেকে খুঁজুন।">
+  <section class="page-hero container search-hero">
+    <p class="kicker">দ্রুত আবিষ্কার</p>
+    <h1>সাইটে খুঁজুন</h1>
+    <p>বাংলা বা ইংরেজি নাম দিয়ে খবর, গাইড এবং রেফারেন্স রেকর্ড খুঁজুন। অনুসন্ধান আপনার ব্রাউজারেই হয়—কোনো শব্দ সার্ভারে পাঠানো হয় না।</p>
+    <label class="search-box"><span>কী খুঁজছেন?</span><input type="search" inputmode="search" autocomplete="off" placeholder="যেমন: লুসিয়া, accessibility, Vice City" data-search-input /></label>
+    <p class="search-status" role="status" aria-live="polite" data-search-status>{items.length}টি ফলাফল প্রস্তুত</p>
+  </section>
+  <section class="section container" aria-labelledby="search-results-heading">
+    <div class="section-heading"><div><p class="kicker">পূর্ণ সূচি</p><h2 id="search-results-heading">অনুসন্ধানের ফল</h2></div><button class="clear-search" type="button" data-search-clear hidden>অনুসন্ধান মুছুন</button></div>
+    <noscript><p class="data-note">জাভাস্ক্রিপ্ট বন্ধ থাকায় ফিল্টার করা যাচ্ছে না, তবে নিচে সম্পূর্ণ সূচি পড়া যাবে।</p></noscript>
+    <div class="search-results" data-search-results>
+      {items.map((item) => (
+        <article class="search-result" data-search-item data-search={`${item.title} ${item.description} ${item.tags}`.toLocaleLowerCase('bn-BD')}>
+          <span>{item.type}</span><h2><a href={item.href}>{item.title}</a></h2><p>{item.description}</p>
+        </article>
+      ))}
+    </div>
+    <p class="empty-search" data-search-empty hidden>এই শব্দে কোনো ফল পাওয়া যায়নি। বানান বদলে বা ছোট শব্দ দিয়ে আবার চেষ্টা করুন।</p>
+  </section>
+  <script is:inline>
+    (() => {
+      const input = document.querySelector('[data-search-input]');
+      const status = document.querySelector('[data-search-status]');
+      const clear = document.querySelector('[data-search-clear]');
+      const empty = document.querySelector('[data-search-empty]');
+      const items = [...document.querySelectorAll('[data-search-item]')];
+      if (!input || !status || !clear || !empty) return;
+      const update = () => {
+        const query = input.value.trim().toLocaleLowerCase('bn-BD');
+        let visible = 0;
+        items.forEach((item) => {
+          const show = !query || item.dataset.search.includes(query);
+          item.hidden = !show;
+          if (show) visible += 1;
+        });
+        clear.hidden = !query;
+        empty.hidden = visible !== 0;
+        status.textContent = query ? `${visible}টি ফলাফল পাওয়া গেছে` : `${visible}টি ফলাফল প্রস্তুত`;
+      };
+      input.addEventListener('input', update);
+      clear.addEventListener('click', () => { input.value = ''; update(); input.focus(); });
+    })();
+  </script>
+</BaseLayout>
