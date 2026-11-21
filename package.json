@@ -17,7 +17,6 @@
     "@astrojs/check": "^0.9.12",
     "typescript": "6.0.2"
   },
-  "packageManager": "pnpm@12.15.0",
   "engines": {
     "node": ">=22.23.4"
   }

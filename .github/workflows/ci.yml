@@ -25,5 +25,5 @@ jobs:
         with:
           node-version: 26
           cache: pnpm
-      - run: pnpm install --frozen-lockfile --config.manage-package-manager-versions=false
+      - run: pnpm install --frozen-lockfile
       - run: pnpm verify
