@@ -1,0 +1,8 @@
+---
+const { level, description } = Astro.props as { level: string; description: string };
+const tone = level === 'নিরাপদ' ? 'safe' : level === 'হালকা' ? 'mild' : 'full';
+---
+<aside class:list={['spoiler-notice', tone]} aria-label={`স্পয়লার স্তর: ${level}`}>
+  <span class="spoiler-icon" aria-hidden="true">{tone === 'safe' ? '✓' : '!'}</span>
+  <div><strong>স্পয়লার স্তর · {level}</strong><p>{description}</p></div>
+</aside>

@@ -1,0 +1,15 @@
+---
+const { article } = Astro.props;
+---
+<div class="article-byline">
+  <div class="byline-avatar" aria-hidden="true">GB</div>
+  <div>
+    <strong>{article.author}</strong>
+    <span>সম্পাদনা: {article.editor}</span>
+  </div>
+  <dl>
+    <div><dt>প্রকাশ</dt><dd><time datetime={article.isoDate}>{article.published}</time></dd></div>
+    <div><dt>হালনাগাদ</dt><dd><time datetime={article.isoUpdatedDate}>{article.updated}</time></dd></div>
+    <div><dt>পড়তে সময়</dt><dd>{article.readTime}</dd></div>
+  </dl>
+</div>

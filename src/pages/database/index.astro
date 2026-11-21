@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const collections = [['যানবাহন', 'মডেল, ধরন ও যাচাইকৃত বৈশিষ্ট্য'], ['অস্ত্র', 'শ্রেণি ও ব্যবহারিক তথ্য'], ['চরিত্র', 'অফিসিয়াল পরিচয়, স্পয়লার সতর্কতাসহ'], ['লোকেশন', 'অঞ্চল ও প্রয়োজনীয় সেবার সূচি']];
+---
+<BaseLayout title="ডেটাবেস" description="GTA VI-এর বাংলা ডেটাবেস—যানবাহন, অস্ত্র, চরিত্র ও লোকেশনের উৎস-যাচাইকৃত তথ্য।">
+  <section class="page-hero container"><p class="kicker">রেফারেন্স লাইব্রেরি</p><h1>GTA VI ডেটাবেস</h1><p>প্রতিটি রেকর্ডে উৎস, শেষ যাচাইয়ের তারিখ এবং স্পয়লার স্তর থাকবে।</p></section>
+  <section class="section container"><div class="database-grid">{collections.map(([title, text], i) => <article><span>{String(i + 1).padStart(2, '0')}</span><h2>{title}</h2><p>{text}</p><small>ডেটা সংগ্রহ চলছে</small></article>)}</div></section>
+</BaseLayout>
