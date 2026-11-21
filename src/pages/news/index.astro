@@ -5,5 +5,7 @@ import articles from '../../data/articles.json';
 ---
 <BaseLayout title="খবর" description="GTA VI-এর সর্বশেষ যাচাইকৃত খবর, অফিসিয়াল আপডেট ও বাংলা বিশ্লেষণ।">
   <section class="page-hero container"><p class="kicker">নিউজরুম</p><h1>খবর ও আপডেট</h1><p>অফিসিয়াল উৎস, প্রকাশের তারিখ এবং যাচাই অবস্থা প্রতিটি খবরে স্পষ্টভাবে দেওয়া থাকে।</p></section>
-  <section class="section container"><div class="article-grid">{articles.map((article) => <ArticleCard article={article} />)}</div></section>
+  <nav class="category-nav container" aria-label="খবরের বিভাগ"><a href="#latest">সব</a><a href="#latest">অফিসিয়াল আপডেট</a><a href="#latest">ফিচার</a><a href="#latest">গাইড</a><a href="#standards">সম্পাদকীয় মান</a></nav>
+  <section class="section container" id="latest"><div class="section-heading"><div><p class="kicker">সর্বশেষ</p><h2>যাচাইকৃত প্রকাশনা</h2></div><p class="desk-note">মানুষের সম্পাদনা · মূল উৎস · দৃশ্যমান হালনাগাদ</p></div><div class="article-grid">{articles.map((article) => <ArticleCard article={article} />)}</div></section>
+  <section class="newsroom-standards container" id="standards"><div><p class="kicker">প্রকাশের আগে</p><h2>প্রতিটি লেখা পাঁচ ধাপে যাচাই</h2></div><ol><li><strong>উৎস</strong><span>প্রাথমিক সূত্র অগ্রাধিকার</span></li><li><strong>তথ্য</strong><span>দাবি ও তারিখ মিলিয়ে দেখা</span></li><li><strong>স্পয়লার</strong><span>লেভেল ও নিরাপদ শিরোনাম</span></li><li><strong>ভাষা</strong><span>স্বাভাবিক ও পরিষ্কার বাংলা</span></li><li><strong>সম্পাদনা</strong><span>প্রকাশের আগে মানব পর্যালোচনা</span></li></ol></section>
 </BaseLayout>

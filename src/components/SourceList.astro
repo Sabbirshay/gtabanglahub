@@ -1,0 +1,21 @@
+---
+interface Source {
+  name: string;
+  publisher: string;
+  url: string;
+  type: string;
+  checked: string;
+}
+const { sources } = Astro.props as { sources: Source[] };
+---
+<aside class="source-list" aria-labelledby="source-heading">
+  <div class="source-list-heading"><p class="kicker">যাচাই ডেস্ক</p><h2 id="source-heading">উৎস ও যাচাই</h2></div>
+  <ol>
+    {sources.map((source) => (
+      <li>
+        <div><span>{source.type}</span><a href={source.url} rel={source.url.startsWith('http') ? 'noopener noreferrer' : undefined}>{source.name}</a></div>
+        <p>{source.publisher} · যাচাই: {source.checked}</p>
+      </li>
+    ))}
+  </ol>
+</aside>

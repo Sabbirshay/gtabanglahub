@@ -1,0 +1,10 @@
+---
+const { current } = Astro.props as { current: string };
+---
+<nav class="breadcrumbs" aria-label="ব্রেডক্রাম্ব">
+  <ol>
+    <li><a href="/">হোম</a></li>
+    <li><a href="/news/">খবর</a></li>
+    <li aria-current="page">{current}</li>
+  </ol>
+</nav>

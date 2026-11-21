@@ -15,14 +15,30 @@ test('every article includes required editorial metadata', () => {
     assert.ok(item.title.length >= 20);
     assert.ok(item.excerpt.length >= 50);
     assert.match(item.isoDate, /^\d{4}-\d{2}-\d{2}$/);
-    assert.ok(item.source);
-    assert.ok(item.sourceUrl);
+    assert.match(item.isoUpdatedDate, /^\d{4}-\d{2}-\d{2}$/);
+    assert.ok(item.author);
+    assert.ok(item.editor);
+    assert.ok(['নিরাপদ', 'হালকা', 'পূর্ণ'].includes(item.spoilerLevel));
+    assert.ok(Array.isArray(item.sources) && item.sources.length > 0);
     assert.equal(typeof item.verified, 'boolean');
   }
 });
 
 test('external sources use HTTPS', () => {
-  for (const item of articles.filter((entry) => entry.sourceUrl.startsWith('http'))) {
-    assert.match(item.sourceUrl, /^https:\/\//);
+  for (const item of articles) {
+    for (const source of item.sources.filter((entry) => entry.url.startsWith('http'))) {
+      assert.match(source.url, /^https:\/\//);
+    }
+  }
+});
+
+test('verified articles include a reviewer and checked sources', () => {
+  for (const item of articles.filter((entry) => entry.verified)) {
+    assert.ok(item.editor.length >= 4);
+    for (const source of item.sources) {
+      assert.ok(source.publisher);
+      assert.ok(source.type);
+      assert.ok(source.checked);
+    }
   }
 });

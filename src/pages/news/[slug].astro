@@ -1,5 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleByline from '../../components/ArticleByline.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SourceList from '../../components/SourceList.astro';
+import SpoilerNotice from '../../components/SpoilerNotice.astro';
 import articles from '../../data/articles.json';
 
 export function getStaticPaths() {
@@ -7,29 +11,46 @@ export function getStaticPaths() {
 }
 const { article } = Astro.props;
 ---
-<BaseLayout title={article.title} description={article.excerpt} path={`/news/${article.slug}/`} type="article">
+<BaseLayout title={article.title} description={article.excerpt} path={`/news/${article.slug}/`} type="article" publishedTime={article.isoDate} modifiedTime={article.isoUpdatedDate} author={article.author}>
   <article class="article-page container">
+    <Breadcrumbs current={article.title} />
     <header>
       <div class="eyebrow"><span>{article.category}</span>{article.verified && <span class="verified">যাচাইকৃত</span>}</div>
       <h1>{article.title}</h1>
       <p class="article-deck">{article.excerpt}</p>
-      <div class="meta"><time datetime={article.isoDate}>{article.published}</time><span>{article.readTime}</span></div>
+      <ArticleByline article={article} />
     </header>
     <div class="article-content">
-      <aside class="source-box"><strong>তথ্যের উৎস</strong><a href={article.sourceUrl} rel={article.sourceUrl.startsWith('http') ? 'noopener noreferrer' : undefined}>{article.source} ↗</a><span>প্রকাশের সময় উৎসটি যাচাই করা হয়েছে।</span></aside>
+      <SpoilerNotice level={article.spoilerLevel} description={article.spoilerDescription} />
+      {article.correctionNote && <aside class="correction-note"><strong>সংশোধন নোট</strong><p>{article.correctionNote}</p></aside>}
       {article.slug === 'gta-vi-now-available' ? (
         <>
-          <p>Rockstar Games-এর অফিসিয়াল ঘোষণা অনুযায়ী Grand Theft Auto VI এখন পাওয়া যাচ্ছে। এই পাতায় আমরা শুধু প্রকাশকের নিশ্চিত করা তথ্যকে খবর হিসেবে ব্যবহার করেছি। কেনার আগে নিজের অঞ্চল, প্ল্যাটফর্ম এবং স্টোর তালিকা সরাসরি যাচাই করুন।</p>
+          <p>Rockstar Games-এর অফিসিয়াল ঘোষণা অনুযায়ী Grand Theft Auto VI এখন PlayStation 5 এবং Xbox Series X|S-এ বিশ্বজুড়ে পাওয়া যাচ্ছে। এই পাতায় আমরা শুধু প্রকাশকের নিশ্চিত করা তথ্যকে খবর হিসেবে ব্যবহার করেছি। কেনার আগে নিজের অঞ্চল ও স্টোর তালিকা সরাসরি যাচাই করুন।</p>
           <h2>খেলার আগে ছোট চেকলিস্ট</h2>
           <ul><li>কনসোলে পর্যাপ্ত স্টোরেজ নিশ্চিত করুন।</li><li>অ্যাক্সেসিবিলিটি ও সাবটাইটেল সেটিংস আগে দেখে নিন।</li><li>অনলাইন পোস্টে স্পয়লার ট্যাগ ব্যবহার করুন।</li></ul>
-          <div class="spoiler-safe"><strong>স্পয়লার অবস্থা: নিরাপদ</strong><span>এই নিবন্ধে গল্প, মিশন বা চরিত্রের ফলাফল প্রকাশ করা হয়নি।</span></div>
+        </>
+      ) : article.slug === 'launch-trailer-official-details' ? (
+        <>
+          <p>Rockstar Games ১৫ অক্টোবর ২০২৬-এ GTA VI-এর লঞ্চ ট্রেলার প্রকাশ করে। অফিসিয়াল ঘোষণায় Jason ও Lucia-র সাধারণ প্রেক্ষাপট, Leonida-র পরিসর এবং Justice-এর নতুন সঙ্গীতের কথা নিশ্চিত করা হয়। আমরা ট্রেলারের দৃশ্য ধরে গল্পের কোনো অনুমান করছি না।</p>
+          <h2>যা নিশ্চিত করা হয়েছে</h2>
+          <ul><li>ট্রেলারটি Rockstar-এর অফিসিয়াল চ্যানেলে প্রকাশিত।</li><li>লঞ্চ প্ল্যাটফর্ম PlayStation 5 এবং Xbox Series X|S।</li><li>ট্রেলারে Justice-এর “Flower in a Hurricane” ব্যবহৃত হয়েছে।</li></ul>
+          <h2>যা আমরা দাবি করছি না</h2>
+          <p>দৃশ্যের ক্রম থেকে মিশন, চরিত্রের ভাগ্য বা গল্পের শেষ নিয়ে কোনো সিদ্ধান্ত টানা হয়নি। এমন বিশ্লেষণ প্রকাশিত হলে সেটি আলাদা স্পয়লার লেবেল পাবে।</p>
+        </>
+      ) : article.slug === 'leonida-radio-official-overview' ? (
+        <>
+          <p>Rockstar Games-এর অফিসিয়াল তথ্য অনুযায়ী GTA VI-তে Classic Rock থেকে Talk Radio পর্যন্ত বিস্তৃত স্টেশন থাকবে। প্রথম প্রকাশনায় ছয়টি স্টেশনের পরিচয় দেওয়া হয়েছিল; অফিসিয়াল Music পাতায় আরও স্টেশন ও অ্যালবামের তথ্য রয়েছে।</p>
+          <h2>নতুন শোনার ব্যবস্থা</h2>
+          <p>গাড়ির রেডিওর পাশাপাশি অন-ডিমান্ড পডকাস্ট শোনা যাবে। চরিত্রের স্মার্টফোনের সঙ্গে যুক্ত হেডফোন বা ইয়ারবাড ব্যবহার করে গাড়ির বাইরেও রেডিও ও পডকাস্ট শোনার সুবিধার কথা প্রকাশক নিশ্চিত করেছে।</p>
+          <h2>প্রথম ঘোষিত ছয় স্টেশন</h2>
+          <ul><li>CircoLoco Records</li><li>Cocoteo FM</li><li>Back Country</li><li>Afro Bank FM</li><li>The Chamber 106.6</li><li>Flash FM</li></ul>
+          <p>এই তালিকা সম্পূর্ণ রেডিও তালিকা নয়; এটি অফিসিয়াল প্রথম পরিচিতির বাংলা সারাংশ।</p>
         </>
       ) : article.slug === 'first-hours-checklist' ? (
         <>
           <p>প্রথম সেশনটি আরামদায়ক করতে ডিসপ্লে, অডিও, কন্ট্রোল ও অ্যাক্সেসিবিলিটি সেটিংস নিজের সুবিধামতো ঠিক করুন। অটো-সেভ সক্রিয় আছে কি না দেখে নিন এবং গুরুত্বপূর্ণ মুহূর্তে আলাদা ম্যানুয়াল সেভ রাখুন।</p>
           <h2>গল্প না জেনেই যা করতে পারেন</h2>
           <ul><li>কন্ট্রোল স্কিম ও ডেড-জোন পরীক্ষা করুন।</li><li>ম্যাপের লেজেন্ড বুঝে নিন, কিন্তু অচেনা মার্কার খুঁজে স্পয়লার নেবেন না।</li><li>ফটো বা ক্লিপ শেয়ার করলে স্পয়লার সতর্কতা দিন।</li></ul>
-          <div class="spoiler-safe"><strong>স্পয়লার অবস্থা: নিরাপদ</strong><span>কোনো মিশনের নাম, গল্পের মোড় বা গোপন লোকেশন নেই।</span></div>
         </>
       ) : (
         <>
@@ -38,6 +59,7 @@ const { article } = Astro.props;
           <ul><li><strong>নিরাপদ:</strong> গল্পের তথ্য নেই।</li><li><strong>হালকা:</strong> শুরুর দিকের সাধারণ প্রসঙ্গ থাকতে পারে।</li><li><strong>পূর্ণ:</strong> গুরুত্বপূর্ণ গল্প বা শেষের তথ্য রয়েছে।</li></ul>
         </>
       )}
+      <SourceList sources={article.sources} />
     </div>
   </article>
 </BaseLayout>

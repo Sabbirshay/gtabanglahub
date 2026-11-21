@@ -6,9 +6,11 @@ interface Article {
   category: string;
   published: string;
   isoDate: string;
+  updated: string;
+  isoUpdatedDate: string;
   readTime: string;
-  source: string;
-  sourceUrl: string;
+  author: string;
+  spoilerLevel: string;
   verified: boolean;
 }
 const { article, featured = false } = Astro.props as { article: Article; featured?: boolean };
@@ -20,6 +22,7 @@ const { article, featured = false } = Astro.props as { article: Article; feature
     <div class="eyebrow"><span>{article.category}</span>{article.verified && <span class="verified">যাচাইকৃত</span>}</div>
     <h3><a href={`/news/${article.slug}/`}>{article.title}</a></h3>
     <p>{article.excerpt}</p>
-    <div class="meta"><time datetime={article.isoDate}>{article.published}</time><span>{article.readTime}</span></div>
+    <div class="card-flags"><span class="spoiler-chip">স্পয়লার · {article.spoilerLevel}</span></div>
+    <div class="meta"><time datetime={article.isoDate}>{article.published}</time><span>{article.author}</span><span>{article.readTime}</span></div>
   </div>
 </article>

@@ -14,6 +14,8 @@ This accelerated plan preserves the agreed feature, quality, security, SEO, and 
 - Prepare launch coverage with primary-source links and human editorial review.
 - Validate Bangla typography, mobile reading, keyboard navigation, and social cards.
 
+**Status: implemented on 21 November 2026.** Reusable byline, breadcrumb, spoiler, correction, and source components are active; five newsroom entries carry structured editorial metadata and two new launch features link to Rockstar Games primary sources. Automated checks cover reviewer, source, date, and HTTPS requirements.
+
 ## Day 3 — guides and structured content
 
 - Build guide taxonomy, difficulty/spoiler metadata, related content, breadcrumbs, and search-ready content schema.
