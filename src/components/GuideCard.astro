@@ -1,0 +1,10 @@
+---
+const { guide } = Astro.props;
+---
+<article class="guide-entry">
+  <div class="guide-entry-top"><span>{guide.category}</span><span>স্পয়লার · {guide.spoilerLevel}</span></div>
+  <h2><a href={`/guides/${guide.slug}/`}>{guide.title}</a></h2>
+  <p>{guide.excerpt}</p>
+  <dl><div><dt>স্তর</dt><dd>{guide.difficulty}</dd></div><div><dt>সময়</dt><dd>{guide.readTime}</dd></div><div><dt>হালনাগাদ</dt><dd>{guide.updated}</dd></div></dl>
+  <a class="guide-read" href={`/guides/${guide.slug}/`}>গাইডটি পড়ুন</a>
+</article>

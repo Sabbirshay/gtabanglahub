@@ -22,6 +22,8 @@ This accelerated plan preserves the agreed feature, quality, security, SEO, and 
 - Publish beginner, settings, accessibility, progress, and responsible-sharing guides.
 - Run factual, language, copyright, and broken-link review.
 
+**Status: implemented on 21 November 2026.** Four complete guides now use structured category, difficulty, spoiler, outcome, date, author, and source records. Guide pages include breadcrumbs, related reading, semantic HowTo microdata, responsive metadata, and primary-source accessibility references. Automated checks enforce discovery and source-review fields.
+
 ## Day 4 — map and database
 
 - Add map region/location model and database schemas for vehicles, weapons, characters, and locations.

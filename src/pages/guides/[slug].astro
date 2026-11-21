@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import GuideCard from '../../components/GuideCard.astro';
+import GuideMeta from '../../components/GuideMeta.astro';
+import SourceList from '../../components/SourceList.astro';
+import guides from '../../data/guides.json';
+
+export function getStaticPaths() {
+  return guides.map((guide) => ({ params: { slug: guide.slug }, props: { guide } }));
+}
+const { guide } = Astro.props;
+const related = guides.filter((item) => item.slug !== guide.slug).slice(0, 2);
+const crumbs = [{ href: '/', label: 'হোম' }, { href: '/guides/', label: 'গাইড' }];
+---
+<BaseLayout title={guide.title} description={guide.excerpt} path={`/guides/${guide.slug}/`} type="article" modifiedTime={guide.isoUpdatedDate} author={guide.author}>
+  <article class="guide-page container" itemscope itemtype="https://schema.org/HowTo">
+    <Breadcrumbs current={guide.title} items={crumbs} />
+    <header>
+      <p class="kicker">{guide.category}</p>
+      <h1 itemprop="name">{guide.title}</h1>
+      <p class="article-deck" itemprop="description">{guide.excerpt}</p>
+      <meta itemprop="dateModified" content={guide.isoUpdatedDate} />
+      <meta itemprop="author" content={guide.author} />
+      <GuideMeta guide={guide} />
+    </header>
+    <div class="article-content guide-content">
+      {guide.slug === 'first-session-settings' ? (
+        <>
+          <section itemprop="step" itemscope itemtype="https://schema.org/HowToStep"><h2 itemprop="name">১. আগে Settings খুলুন</h2><div itemprop="text"><p>Pause Menu থেকে Settings নির্বাচন করুন। দ্রুত শুরু করতে চাইলেও কয়েক মিনিট সময় দিন—পরে মাঝখানে থেমে কন্ট্রোল বদলানোর চেয়ে শুরুতেই আরামদায়ক সেটআপ ভালো।</p></div></section>
+          <section itemprop="step" itemscope itemtype="https://schema.org/HowToStep"><h2 itemprop="name">২. কন্ট্রোল ও ক্যামেরা পরীক্ষা করুন</h2><div itemprop="text"><p>Control Scheme, sensitivity, inverted controls এবং Camera-এর comfort অপশন দেখুন। হাঁটা ও গাড়ি চালানোর জন্য একই sensitivity সুবিধাজনক নাও হতে পারে, তাই ছোট নিরাপদ জায়গায় আলাদাভাবে পরীক্ষা করুন।</p></div></section>
+          <section itemprop="step" itemscope itemtype="https://schema.org/HowToStep"><h2 itemprop="name">৩. লেখা ও সাবটাইটেল পড়ুন</h2><div itemprop="text"><p>UI-এর scaling ও readability, subtitles এবং captions নিজের পর্দা থেকে স্বাভাবিক দূরত্বে বসে যাচাই করুন। গুরুত্বপূর্ণ রং আলাদা করতে অসুবিধা হলে Display-এর high-contrast অপশনও দেখুন।</p></div></section>
+          <section itemprop="step" itemscope itemtype="https://schema.org/HowToStep"><h2 itemprop="name">৪. অডিও আলাদা করে শুনুন</h2><div itemprop="text"><p>ভয়েস, পরিবেশ ও সঙ্গীতের ভারসাম্য ঠিক করুন। Narration দরকার হলে Audio বিভাগে পরীক্ষা করুন। হেডফোন ব্যবহার করলে আরামদায়ক ভলিউম দিয়ে শুরু করুন।</p></div></section>
+          <section itemprop="step" itemscope itemtype="https://schema.org/HowToStep"><h2 itemprop="name">৫. পরিবর্তন মনে রাখুন</h2><div itemprop="text"><p>কোন পরিবর্তনে সুবিধা হলো তা সংক্ষেপে মনে রাখুন। প্রয়োজন হলে Restore Default বা Restore All দিয়ে আবার শুরু করা যায়—অফিসিয়াল Settings নির্দেশনায় এই reset অপশন নিশ্চিত করা হয়েছে।</p></div></section>
+        </>
+      ) : guide.slug === 'accessibility-settings' ? (
+        <>
+          <p>একটি “সেরা” accessibility configuration নেই। আপনার দৃষ্টি, শ্রবণ, চলাচল, মনোযোগ এবং খেলার পরিবেশ অনুযায়ী কয়েকটি বিভাগ আলাদাভাবে পরীক্ষা করাই সবচেয়ে কার্যকর।</p>
+          <section itemprop="step" itemscope itemtype="https://schema.org/HowToStep"><h2 itemprop="name">পাঠযোগ্যতা ও ভিজ্যুয়াল</h2><div itemprop="text"><p>UI বিভাগে scaling, readability, subtitles, captions, navigation, reticle ও HUD notification অপশন রয়েছে। Display বিভাগে visual effects ও high-contrast shaders পাওয়া যায়। একটি ব্যস্ত দৃশ্য এবং একটি মেনু—দুই জায়গাতেই পরিবর্তন পরীক্ষা করুন।</p></div></section>
+          <section itemprop="step" itemscope itemtype="https://schema.org/HowToStep"><h2 itemprop="name">ক্যামেরা ও আরাম</h2><div itemprop="text"><p>Camera বিভাগে on-foot, vehicle, aircraft, underwater এবং comfort সেটিংস আলাদা। মাথা ঘোরা বা চোখে চাপ হলে camera movement ও effect কমিয়ে অল্প সময়ের সেশন দিয়ে পরীক্ষা করুন।</p></div></section>
+          <section itemprop="step" itemscope itemtype="https://schema.org/HowToStep"><h2 itemprop="name">অডিও ও বিকল্প সংকেত</h2><div itemprop="text"><p>Audio বিভাগে setup, volume এবং narration আছে। PlayStation-এর প্রকাশিত তালিকায় mono audio, পৃথক volume controls, screen reader ও audio cue alternatives-ও উল্লেখ রয়েছে; নিজের edition ও বর্তমান update-এ অপশনটি দেখুন।</p></div></section>
+          <section itemprop="step" itemscope itemtype="https://schema.org/HowToStep"><h2 itemprop="name">কন্ট্রোল</h2><div itemprop="text"><p>Control Scheme-এ on-foot, aiming, melee, land/water vehicles, aircraft, bicycle, swimming ও parachute-এর layout আলাদা করে দেখা যায়। Controller বিভাগে sensitivity ও inverted controls রয়েছে। একবারে একটি পরিবর্তন করে ফল বোঝা সহজ।</p></div></section>
+        </>
+      ) : guide.slug === 'save-and-progress-basics' ? (
+        <>
+          <section itemprop="step" itemscope itemtype="https://schema.org/HowToStep"><h2 itemprop="name">অটো-সেভ সংকেত দেখুন</h2><div itemprop="text"><p>প্রথম সেশনে অগ্রগতির পর অটো-সেভ সংকেত বা save status দেখুন। সেভ চলাকালে গেম বা কনসোল বন্ধ করবেন না। UI সংস্করণভেদে বদলাতে পারে, তাই নিজের পর্দার সংকেত অনুসরণ করুন।</p></div></section>
+          <section itemprop="step" itemscope itemtype="https://schema.org/HowToStep"><h2 itemprop="name">আলাদা ম্যানুয়াল সেভ রাখুন</h2><div itemprop="text"><p>যেখানে ম্যানুয়াল সেভ সম্ভব, একটি slot বারবার overwrite না করে অন্তত দুইটি পর্যায়ক্রমিক slot ব্যবহার করুন। এতে ভুল সিদ্ধান্ত বা ক্ষতিগ্রস্ত সাম্প্রতিক অবস্থার পর আগের অবস্থায় ফেরার সুযোগ থাকে।</p></div></section>
+          <section itemprop="step" itemscope itemtype="https://schema.org/HowToStep"><h2 itemprop="name">সেশন শেষের রুটিন</h2><div itemprop="text"><p>নিরাপদ জায়গায় থামুন, save status নিশ্চিত করুন, তারপর game menu দিয়ে বের হন। Cloud sync ব্যবহার করলে কনসোল বন্ধ করার আগে sync শেষ হওয়ার সময় দিন। সমস্যা হলে নিজের প্ল্যাটফর্ম support এবং Rockstar Support দেখুন।</p></div></section>
+        </>
+      ) : (
+        <>
+          <section itemprop="step" itemscope itemtype="https://schema.org/HowToStep"><h2 itemprop="name">শিরোনাম স্পয়লার-মুক্ত রাখুন</h2><div itemprop="text"><p>চরিত্রের ভাগ্য, মিশনের ফল বা শেষের তথ্য শিরোনাম ও preview image-এ দেবেন না। “মিশন ১২-এর পর” ধরনের নিরপেক্ষ ভাষা ব্যবহার করুন।</p></div></section>
+          <section itemprop="step" itemscope itemtype="https://schema.org/HowToStep"><h2 itemprop="name">সতর্কতা আগে দিন</h2><div itemprop="text"><p>পোস্টের শুরুতে নিরাপদ, হালকা বা পূর্ণ—স্পয়লারের স্তর লিখুন। কতদূর পর্যন্ত গল্প আলোচনা হচ্ছে সেটিও বলুন, কিন্তু সতর্কতার মধ্যেই স্পয়লার লিখবেন না।</p></div></section>
+          <section itemprop="step" itemscope itemtype="https://schema.org/HowToStep"><h2 itemprop="name">ব্যক্তিগত তথ্য পরীক্ষা করুন</h2><div itemprop="text"><p>স্ক্রিনশট বা ক্লিপে account name, notification, voice chat বা অন্য ব্যক্তির পরিচয় দেখা যাচ্ছে কি না পরীক্ষা করুন। অনুমতি ছাড়া ব্যক্তিগত কথোপকথন শেয়ার করবেন না।</p></div></section>
+          <section itemprop="step" itemscope itemtype="https://schema.org/HowToStep"><h2 itemprop="name">উৎস ও সম্পাদনা জানান</h2><div itemprop="text"><p>অফিসিয়াল তথ্য হলে মূল লিংক দিন। ছবি পরিবর্তন, AI সহায়তা বা পুনর্গঠন করা হলে স্পষ্টভাবে জানান—তৈরি ছবি কখনো বাস্তব game evidence হিসেবে দেখাবেন না।</p></div></section>
+        </>
+      )}
+      <SourceList sources={guide.sources.map((source) => ({ ...source, type: 'গাইড উৎস' }))} />
+    </div>
+  </article>
+  <section class="related-guides container"><p class="kicker">এরপর পড়ুন</p><h2>সম্পর্কিত গাইড</h2><div class="guide-library">{related.map((item) => <GuideCard guide={item} />)}</div></section>
+</BaseLayout>

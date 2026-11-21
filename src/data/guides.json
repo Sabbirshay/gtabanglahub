@@ -1,0 +1,67 @@
+[
+  {
+    "slug": "first-session-settings",
+    "title": "প্রথম সেশনের সেটিংস চেকলিস্ট",
+    "excerpt": "খেলা শুরু করার আগে কন্ট্রোল, ক্যামেরা, ডিসপ্লে, সাবটাইটেল ও অডিও নিজের সুবিধামতো গুছিয়ে নিন।",
+    "category": "শুরু করুন",
+    "difficulty": "নতুন খেলোয়াড়",
+    "spoilerLevel": "নিরাপদ",
+    "readTime": "৭ মিনিট",
+    "updated": "২১ নভেম্বর ২০২৬",
+    "isoUpdatedDate": "2026-11-21",
+    "author": "GTA Bangla Hub গাইড দল",
+    "outcomes": ["আরামদায়ক কন্ট্রোল", "পাঠযোগ্য UI", "নিরাপদ প্রথম সেশন"],
+    "sources": [
+      {"name": "How to change Grand Theft Auto VI settings", "publisher": "Rockstar Games Customer Support", "url": "https://support.rockstargames.com/articles/4jUHNdP22SmaKSF8DWqhXC/how-to-change-grand-theft-auto-vi-settings", "checked": "২১ নভেম্বর ২০২৬"}
+    ]
+  },
+  {
+    "slug": "accessibility-settings",
+    "title": "অ্যাক্সেসিবিলিটি সেটিংস বুঝে নিন",
+    "excerpt": "পাঠযোগ্যতা, সাবটাইটেল, হাই-কনট্রাস্ট, ক্যামেরা কমফোর্ট, ন্যারেশন ও ইনপুট অপশন কোথায় পাবেন।",
+    "category": "অ্যাক্সেসিবিলিটি",
+    "difficulty": "সবাই",
+    "spoilerLevel": "নিরাপদ",
+    "readTime": "৮ মিনিট",
+    "updated": "২১ নভেম্বর ২০২৬",
+    "isoUpdatedDate": "2026-11-21",
+    "author": "GTA Bangla Hub গাইড দল",
+    "outcomes": ["বড় ও পরিষ্কার লেখা", "কম ভিজ্যুয়াল চাপ", "নিজস্ব অডিও ও কন্ট্রোল"],
+    "sources": [
+      {"name": "How to change Grand Theft Auto VI settings", "publisher": "Rockstar Games Customer Support", "url": "https://support.rockstargames.com/articles/4jUHNdP22SmaKSF8DWqhXC/how-to-change-grand-theft-auto-vi-settings", "checked": "২১ নভেম্বর ২০২৬"},
+      {"name": "Grand Theft Auto VI accessibility features", "publisher": "PlayStation Store", "url": "https://store.playstation.com/en-us/product/EP1004-PPSA01547_00-GTAVIULTIMATE001/", "checked": "২১ নভেম্বর ২০২৬"}
+    ]
+  },
+  {
+    "slug": "save-and-progress-basics",
+    "title": "সেভ ও অগ্রগতি নিরাপদ রাখার মৌলিক নিয়ম",
+    "excerpt": "অটো-সেভ যাচাই, আলাদা ম্যানুয়াল সেভ এবং সেশন শেষ করার আগে ছোট নিরাপত্তা রুটিন।",
+    "category": "অগ্রগতি",
+    "difficulty": "নতুন খেলোয়াড়",
+    "spoilerLevel": "নিরাপদ",
+    "readTime": "৫ মিনিট",
+    "updated": "২১ নভেম্বর ২০২৬",
+    "isoUpdatedDate": "2026-11-21",
+    "author": "GTA Bangla Hub গাইড দল",
+    "outcomes": ["সেভ হারানোর ঝুঁকি কমানো", "পরিষ্কার সেভ রুটিন", "শান্তভাবে সেশন শেষ"],
+    "sources": [
+      {"name": "Grand Theft Auto VI Support", "publisher": "Rockstar Games Customer Support", "url": "https://support.rockstargames.com/VI", "checked": "২১ নভেম্বর ২০২৬"}
+    ]
+  },
+  {
+    "slug": "responsible-sharing",
+    "title": "স্ক্রিনশট ও ক্লিপ দায়িত্বশীলভাবে শেয়ার করুন",
+    "excerpt": "স্পয়লার সতর্কতা, নিরাপদ শিরোনাম, ব্যক্তিগত তথ্য এবং অন্য খেলোয়াড়ের পছন্দ সম্মান করার নিয়ম।",
+    "category": "কমিউনিটি",
+    "difficulty": "সবাই",
+    "spoilerLevel": "নিরাপদ",
+    "readTime": "৪ মিনিট",
+    "updated": "২১ নভেম্বর ২০২৬",
+    "isoUpdatedDate": "2026-11-21",
+    "author": "GTA Bangla Hub সম্পাদকীয়",
+    "outcomes": ["স্পয়লার-নিরাপদ পোস্ট", "পরিষ্কার সতর্কতা", "সম্মানজনক আলোচনা"],
+    "sources": [
+      {"name": "GTA Bangla Hub সম্পাদকীয় নীতি", "publisher": "GTA Bangla Hub", "url": "/editorial-policy/", "checked": "২১ নভেম্বর ২০২৬"}
+    ]
+  }
+]
