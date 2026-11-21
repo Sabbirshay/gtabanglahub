@@ -1,0 +1,194 @@
+[
+  {
+    "slug": "jason-duval",
+    "type": "character",
+    "name": "Jason Duval",
+    "banglaName": "জেসন ডুভাল",
+    "summary": "অফিসিয়াল পরিচিতিতে আর্মিতে সময় কাটানো এবং লিওনিডা কিজে স্থানীয় ড্রাগ রানারদের সঙ্গে কাজ করার কথা বলা হয়েছে।",
+    "status": "confirmed",
+    "spoilerLevel": "হালকা",
+    "lastReviewed": "2026-11-21",
+    "facts": [
+      { "label": "ধরন", "value": "প্রধান চরিত্র", "state": "confirmed" },
+      { "label": "অঞ্চল", "value": "লিওনিডা কিজ", "state": "confirmed" },
+      { "label": "বয়স", "value": "অজানা", "state": "unknown" }
+    ],
+    "source": { "name": "Only in Leonida — Jason Duval", "publisher": "Rockstar Games", "url": "https://www.rockstargames.com/VI/only-in-leonida/cal" }
+  },
+  {
+    "slug": "lucia-caminos",
+    "type": "character",
+    "name": "Lucia Caminos",
+    "banglaName": "লুসিয়া কামিনোস",
+    "summary": "অফিসিয়াল পরিচিতিতে লিওনিডা পেনিটেনশিয়ারি থেকে বেরিয়ে নিজের পরিকল্পনা বাস্তবায়নে প্রতিশ্রুতিবদ্ধ চরিত্র।",
+    "status": "confirmed",
+    "spoilerLevel": "হালকা",
+    "lastReviewed": "2026-11-21",
+    "facts": [
+      { "label": "ধরন", "value": "প্রধান চরিত্র", "state": "confirmed" },
+      { "label": "উল্লেখিত স্থান", "value": "লিওনিডা পেনিটেনশিয়ারি", "state": "confirmed" },
+      { "label": "বয়স", "value": "অজানা", "state": "unknown" }
+    ],
+    "source": { "name": "Only in Leonida — Lucia Caminos", "publisher": "Rockstar Games", "url": "https://www.rockstargames.com/VI/only-in-leonida/cal" }
+  },
+  {
+    "slug": "cal-hampton",
+    "type": "character",
+    "name": "Cal Hampton",
+    "banglaName": "ক্যাল হ্যাম্পটন",
+    "summary": "জেসনের বন্ধু এবং ব্রায়ানের সহযোগী; অফিসিয়াল পরিচিতিতে Coast Guard যোগাযোগ শোনার অভ্যাসের কথা রয়েছে।",
+    "status": "confirmed",
+    "spoilerLevel": "হালকা",
+    "lastReviewed": "2026-11-21",
+    "facts": [
+      { "label": "সম্পর্ক", "value": "জেসনের বন্ধু", "state": "confirmed" },
+      { "label": "অভিনয়শিল্পী", "value": "Bobby Moynihan", "state": "confirmed" },
+      { "label": "বয়স", "value": "অজানা", "state": "unknown" }
+    ],
+    "source": { "name": "Only in Leonida — Cal Hampton", "publisher": "Rockstar Games", "url": "https://www.rockstargames.com/VI/only-in-leonida/cal" }
+  },
+  {
+    "slug": "boobie-ike",
+    "type": "character",
+    "name": "Boobie Ike",
+    "banglaName": "বুবি আইক",
+    "summary": "ভাইস সিটির স্থানীয় উদ্যোক্তা; রিয়েল এস্টেট, ক্লাব ও রেকর্ডিং স্টুডিওর সঙ্গে যুক্ত বলে অফিসিয়াল পরিচিতিতে নিশ্চিত।",
+    "status": "confirmed",
+    "spoilerLevel": "হালকা",
+    "lastReviewed": "2026-11-21",
+    "facts": [
+      { "label": "অঞ্চল", "value": "ভাইস সিটি", "state": "confirmed" },
+      { "label": "প্রতিষ্ঠান", "value": "Only Raw Records", "state": "confirmed" },
+      { "label": "বয়স", "value": "অজানা", "state": "unknown" }
+    ],
+    "source": { "name": "Only in Leonida — Boobie Ike", "publisher": "Rockstar Games", "url": "https://www.rockstargames.com/VI/only-in-leonida/cal" }
+  },
+  {
+    "slug": "raul-bautista",
+    "type": "character",
+    "name": "Raul Bautista",
+    "banglaName": "রাউল বাউতিস্তা",
+    "summary": "অফিসিয়াল পরিচিতি অনুযায়ী অভিজ্ঞ ব্যাংক ডাকাত, যিনি ঝুঁকিপূর্ণ কাজের জন্য নতুন প্রতিভা খোঁজেন।",
+    "status": "confirmed",
+    "spoilerLevel": "হালকা",
+    "lastReviewed": "2026-11-21",
+    "facts": [
+      { "label": "ভূমিকা", "value": "অভিজ্ঞ ব্যাংক ডাকাত", "state": "confirmed" },
+      { "label": "অভিনয়শিল্পী", "value": "Manny Perez", "state": "confirmed" },
+      { "label": "স্থায়ী অঞ্চল", "value": "অজানা", "state": "unknown" }
+    ],
+    "source": { "name": "Only in Leonida — Raul Bautista", "publisher": "Rockstar Games", "url": "https://www.rockstargames.com/VI/only-in-leonida/raul" }
+  },
+  {
+    "slug": "brian-heder",
+    "type": "character",
+    "name": "Brian Heder",
+    "banglaName": "ব্রায়ান হেডার",
+    "summary": "লিওনিডা কিজের দীর্ঘদিনের স্মাগলার; অফিসিয়াল পরিচিতিতে বোট ইয়ার্ড পরিচালনা ও জেসনকে থাকার জায়গা দেওয়ার কথা আছে।",
+    "status": "confirmed",
+    "spoilerLevel": "হালকা",
+    "lastReviewed": "2026-11-21",
+    "facts": [
+      { "label": "অঞ্চল", "value": "লিওনিডা কিজ", "state": "confirmed" },
+      { "label": "অভিনয়শিল্পী", "value": "Stephen Root", "state": "confirmed" },
+      { "label": "বোট ইয়ার্ডের নাম", "value": "অজানা", "state": "unknown" }
+    ],
+    "source": { "name": "Only in Leonida — Brian Heder", "publisher": "Rockstar Games", "url": "https://www.rockstargames.com/VI/only-in-leonida/raul" }
+  },
+  {
+    "slug": "grotti-cheetah-95",
+    "type": "vehicle",
+    "name": "'95 Grotti Cheetah",
+    "banglaName": "’৯৫ গ্রোটি চিতা",
+    "summary": "অফিসিয়াল Ultimate Edition benefits স্ক্রিনশটে নামসহ প্রকাশিত গাড়ি। বেস সংস্করণে প্রাপ্যতা এই রেকর্ডে নিশ্চিত নয়।",
+    "status": "confirmed",
+    "spoilerLevel": "নিরাপদ",
+    "lastReviewed": "2026-11-21",
+    "facts": [
+      { "label": "শ্রেণি", "value": "স্পোর্টস কার", "state": "confirmed" },
+      { "label": "সংস্করণ", "value": "Ultimate Edition benefit", "state": "confirmed" },
+      { "label": "বেস সংস্করণে প্রাপ্যতা", "value": "অজানা", "state": "unknown" }
+    ],
+    "source": { "name": "Ultimate Edition Benefits screenshots", "publisher": "Rockstar Games", "url": "https://www.rockstargames.com/VI/media/screenshots" }
+  },
+  {
+    "slug": "dinka-enduro-motorcycle",
+    "type": "vehicle",
+    "name": "Dinka Enduro Motorcycle",
+    "banglaName": "ডিঙ্কা এন্ডুরো মোটরসাইকেল",
+    "summary": "অফিসিয়াল Ultimate Edition benefits তালিকায় নামসহ থাকা মোটরসাইকেল; পরিসংখ্যান প্রকাশিত নয়।",
+    "status": "confirmed",
+    "spoilerLevel": "নিরাপদ",
+    "lastReviewed": "2026-11-21",
+    "facts": [
+      { "label": "শ্রেণি", "value": "মোটরসাইকেল", "state": "confirmed" },
+      { "label": "সংস্করণ", "value": "Ultimate Edition benefit", "state": "confirmed" },
+      { "label": "গতি পরিসংখ্যান", "value": "অপ্রকাশিত", "state": "unavailable" }
+    ],
+    "source": { "name": "Ultimate Edition Benefits screenshots", "publisher": "Rockstar Games", "url": "https://www.rockstargames.com/VI/media/screenshots" }
+  },
+  {
+    "slug": "crest-kayak",
+    "type": "vehicle",
+    "name": "Crest Kayak",
+    "banglaName": "ক্রেস্ট কায়াক",
+    "summary": "অফিসিয়াল benefits গ্যালারিতে নামসহ প্রকাশিত জলযান; সাধারণ গেমপ্লেতে অবস্থান এখনো নথিভুক্ত নয়।",
+    "status": "confirmed",
+    "spoilerLevel": "নিরাপদ",
+    "lastReviewed": "2026-11-21",
+    "facts": [
+      { "label": "শ্রেণি", "value": "জলযান", "state": "confirmed" },
+      { "label": "সংস্করণ", "value": "Ultimate Edition benefit", "state": "confirmed" },
+      { "label": "মানচিত্রে অবস্থান", "value": "অজানা", "state": "unknown" }
+    ],
+    "source": { "name": "Ultimate Edition Benefits screenshots", "publisher": "Rockstar Games", "url": "https://www.rockstargames.com/VI/media/screenshots" }
+  },
+  {
+    "slug": "shitzu-squalo",
+    "type": "vehicle",
+    "name": "Shitzu Squalo",
+    "banglaName": "শিটজু স্কুয়ালো",
+    "summary": "Rockstar-এর Ultimate Edition benefits গ্যালারিতে নামসহ থাকা মোটরচালিত জলযান।",
+    "status": "confirmed",
+    "spoilerLevel": "নিরাপদ",
+    "lastReviewed": "2026-11-21",
+    "facts": [
+      { "label": "শ্রেণি", "value": "মোটরবোট", "state": "confirmed" },
+      { "label": "সংস্করণ", "value": "Ultimate Edition benefit", "state": "confirmed" },
+      { "label": "মূল্য", "value": "অপ্রকাশিত", "state": "unavailable" }
+    ],
+    "source": { "name": "Ultimate Edition Benefits screenshots", "publisher": "Rockstar Games", "url": "https://www.rockstargames.com/VI/media/screenshots" }
+  },
+  {
+    "slug": "morgan-revolvers",
+    "type": "weapon",
+    "name": "Hawk & Little Morgan Revolvers",
+    "banglaName": "হক ও লিটল মরগান রিভলভার",
+    "summary": "অফিসিয়াল Ultimate Edition benefits গ্যালারিতে দুই রিভলভারের নাম প্রকাশিত; ক্ষতি বা ফায়ার-রেট প্রকাশিত নয়।",
+    "status": "confirmed",
+    "spoilerLevel": "নিরাপদ",
+    "lastReviewed": "2026-11-21",
+    "facts": [
+      { "label": "শ্রেণি", "value": "রিভলভার", "state": "confirmed" },
+      { "label": "সংস্করণ", "value": "Ultimate Edition benefit", "state": "confirmed" },
+      { "label": "পরিসংখ্যান", "value": "অপ্রকাশিত", "state": "unavailable" }
+    ],
+    "source": { "name": "Ultimate Edition Benefits screenshots", "publisher": "Rockstar Games", "url": "https://www.rockstargames.com/VI/media/screenshots" }
+  },
+  {
+    "slug": "personalized-weapon-variants",
+    "type": "weapon",
+    "name": "Personalized Weapon Variants",
+    "banglaName": "পার্সোনালাইজড অস্ত্র ভ্যারিয়েন্ট",
+    "summary": "অফিসিয়াল benefits গ্যালারিতে ফিচারটির নাম আছে; অন্তর্ভুক্ত প্রতিটি অস্ত্রের পূর্ণ নাম প্রকাশিত তালিকায় নেই।",
+    "status": "confirmed",
+    "spoilerLevel": "নিরাপদ",
+    "lastReviewed": "2026-11-21",
+    "facts": [
+      { "label": "ধরন", "value": "কাস্টম ভ্যারিয়েন্ট", "state": "confirmed" },
+      { "label": "সংস্করণ", "value": "Ultimate Edition benefit", "state": "confirmed" },
+      { "label": "পূর্ণ অস্ত্র তালিকা", "value": "অপ্রকাশিত", "state": "unavailable" }
+    ],
+    "source": { "name": "Ultimate Edition Benefits screenshots", "publisher": "Rockstar Games", "url": "https://www.rockstargames.com/VI/media/screenshots" }
+  }
+]

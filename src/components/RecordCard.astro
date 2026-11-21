@@ -1,0 +1,50 @@
+---
+interface Fact {
+  label: string;
+  value: string;
+  state: 'confirmed' | 'unknown' | 'unavailable';
+}
+
+interface RecordItem {
+  slug: string;
+  type: 'location' | 'character' | 'vehicle' | 'weapon';
+  name: string;
+  banglaName: string;
+  summary: string;
+  status: 'confirmed';
+  spoilerLevel: string;
+  lastReviewed: string;
+  facts: Fact[];
+  source: { name: string; publisher: string; url: string };
+}
+
+const { item } = Astro.props as { item: RecordItem };
+const labels = {
+  location: 'লোকেশন',
+  character: 'চরিত্র',
+  vehicle: 'যানবাহন',
+  weapon: 'অস্ত্র',
+};
+const stateLabels = { confirmed: 'নিশ্চিত', unknown: 'অজানা', unavailable: 'অপ্রকাশিত' };
+---
+
+<article class="record-card" data-record data-type={item.type} id={item.slug} itemscope itemtype="https://schema.org/Thing">
+  <header>
+    <div class="record-tags"><span>{labels[item.type]}</span><span>স্পয়লার · {item.spoilerLevel}</span></div>
+    <h2 itemprop="name">{item.banglaName}</h2>
+    <p class="record-name">{item.name}</p>
+  </header>
+  <p itemprop="description">{item.summary}</p>
+  <dl class="record-facts">
+    {item.facts.map((fact) => (
+      <div data-state={fact.state}>
+        <dt>{fact.label}</dt>
+        <dd>{fact.value}<span>{stateLabels[fact.state]}</span></dd>
+      </div>
+    ))}
+  </dl>
+  <footer>
+    <p>শেষ যাচাই · <time datetime={item.lastReviewed}>২১ নভেম্বর ২০২৬</time></p>
+    <a href={item.source.url} rel="noopener noreferrer">{item.source.publisher} উৎস</a>
+  </footer>
+</article>

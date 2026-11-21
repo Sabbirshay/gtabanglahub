@@ -30,6 +30,8 @@ This accelerated plan preserves the agreed feature, quality, security, SEO, and 
 - Import only verified records with source and last-reviewed fields; distinguish unknown from unavailable.
 - Add filtering progressively without blocking the no-JavaScript reading experience.
 
+**Status: implemented on 21 November 2026.** Six officially named Leonida regions now feed a transparent, non-geographic schematic and a shared location model. The reference database combines locations with verified character, vehicle, and weapon records, labels unknown and unpublished facts separately, links every record to an official source, and adds accessible client-side filtering while preserving the complete no-JavaScript reading experience.
+
 ## Day 5 — community and discovery
 
 - Add moderated submissions, report/correction flow, on-site search, related content, and newsletter only after consent and retention rules are approved.

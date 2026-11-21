@@ -1,0 +1,98 @@
+[
+  {
+    "slug": "vice-city",
+    "name": "Vice City",
+    "banglaName": "ভাইস সিটি",
+    "kind": "নগর অঞ্চল",
+    "summary": "লিওনিডার নিয়ন-আলোকিত উপকূলীয় কেন্দ্র; অফিসিয়াল People & Places পাতায় স্বতন্ত্র গন্তব্য হিসেবে প্রকাশিত।",
+    "spoilerLevel": "নিরাপদ",
+    "status": "confirmed",
+    "lastReviewed": "2026-11-21",
+    "position": { "x": 66, "y": 40 },
+    "source": {
+      "name": "Only in Leonida — People & Places",
+      "publisher": "Rockstar Games",
+      "url": "https://www.rockstargames.com/VI/only-in-leonida/cal"
+    }
+  },
+  {
+    "slug": "leonida-keys",
+    "name": "Leonida Keys",
+    "banglaName": "লিওনিডা কিজ",
+    "kind": "দ্বীপমালা",
+    "summary": "অফিসিয়াল লোকেশন তালিকায় থাকা দ্বীপাঞ্চল; সুনির্দিষ্ট সীমারেখা ও সব সেবা এখনো আলাদাভাবে নথিভুক্ত নয়।",
+    "spoilerLevel": "নিরাপদ",
+    "status": "confirmed",
+    "lastReviewed": "2026-11-21",
+    "position": { "x": 75, "y": 76 },
+    "source": {
+      "name": "Grand Theft Auto VI official screenshots",
+      "publisher": "Rockstar Games",
+      "url": "https://www.rockstargames.com/VI/media/screenshots"
+    }
+  },
+  {
+    "slug": "port-gellhorn",
+    "name": "Port Gellhorn",
+    "banglaName": "পোর্ট গেলহর্ন",
+    "kind": "উপকূলীয় শহর",
+    "summary": "Rockstar-এর প্রকাশিত গন্তব্যগুলোর একটি; এই সূচিতে অনুমানভিত্তিক দোকান বা মিশন পিন যোগ করা হয়নি।",
+    "spoilerLevel": "নিরাপদ",
+    "status": "confirmed",
+    "lastReviewed": "2026-11-21",
+    "position": { "x": 38, "y": 52 },
+    "source": {
+      "name": "Grand Theft Auto VI official screenshots",
+      "publisher": "Rockstar Games",
+      "url": "https://www.rockstargames.com/VI/media/screenshots"
+    }
+  },
+  {
+    "slug": "ambrosia",
+    "name": "Ambrosia",
+    "banglaName": "অ্যামব্রোসিয়া",
+    "kind": "অভ্যন্তরীণ অঞ্চল",
+    "summary": "অফিসিয়াল পোস্টকার্ড ও স্ক্রিনশট সেটে নামসহ প্রকাশিত অঞ্চল; সঠিক প্রশাসনিক শ্রেণি এখনো অজানা।",
+    "spoilerLevel": "নিরাপদ",
+    "status": "confirmed",
+    "lastReviewed": "2026-11-21",
+    "position": { "x": 48, "y": 34 },
+    "source": {
+      "name": "Grand Theft Auto VI media and artwork",
+      "publisher": "Rockstar Games",
+      "url": "https://www.rockstargames.com/VI/media"
+    }
+  },
+  {
+    "slug": "grassrivers",
+    "name": "Grassrivers",
+    "banglaName": "গ্রাসরিভার্স",
+    "kind": "জলাভূমি অঞ্চল",
+    "summary": "অফিসিয়াল গন্তব্য ও স্ক্রিনশট বিভাগে নিশ্চিত নাম; সুনির্দিষ্ট কার্যক্রমের পূর্ণ তালিকা প্রকাশিত নয়।",
+    "spoilerLevel": "নিরাপদ",
+    "status": "confirmed",
+    "lastReviewed": "2026-11-21",
+    "position": { "x": 57, "y": 61 },
+    "source": {
+      "name": "Grand Theft Auto VI official screenshots",
+      "publisher": "Rockstar Games",
+      "url": "https://www.rockstargames.com/VI/media/screenshots"
+    }
+  },
+  {
+    "slug": "mount-kalaga",
+    "name": "Mount Kalaga National Park",
+    "banglaName": "মাউন্ট কালাগা ন্যাশনাল পার্ক",
+    "kind": "জাতীয় উদ্যান",
+    "summary": "Rockstar-এর অফিসিয়াল গন্তব্য তালিকার জাতীয় উদ্যান; এই স্কিম্যাটিক কোনো বাস্তব দূরত্ব দাবি করে না।",
+    "spoilerLevel": "নিরাপদ",
+    "status": "confirmed",
+    "lastReviewed": "2026-11-21",
+    "position": { "x": 32, "y": 18 },
+    "source": {
+      "name": "Grand Theft Auto VI media and artwork",
+      "publisher": "Rockstar Games",
+      "url": "https://www.rockstargames.com/VI/media"
+    }
+  }
+]
