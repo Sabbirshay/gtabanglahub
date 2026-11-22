@@ -17,6 +17,14 @@ Run the full verification gate before opening or merging a pull request:
 pnpm verify
 ```
 
+The verification gate includes an end-to-end production-header smoke test. Before a production promotion, also populate the non-secret launch controls documented in `.env.example` and run:
+
+```sh
+pnpm launch:check
+```
+
+A no-go result is intentional until the canonical domain, mailboxes, named owners, freeze SHA, monitoring, and rollback target are verified. See [docs/LAUNCH_RUNBOOK.md](docs/LAUNCH_RUNBOOK.md) and [docs/CONTENT_FREEZE.md](docs/CONTENT_FREEZE.md).
+
 ## Configuration
 
 Copy `.env.example` to `.env` and set `SITE_URL` to the deployed canonical origin. The current production default is `https://gtabanglahub.com`; change it before launch if the final domain differs, including `public/robots.txt` and `public/sitemap.xml`.

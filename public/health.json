@@ -1,0 +1,7 @@
+{
+  "status": "ok",
+  "service": "gtabanglahub",
+  "version": "day-7-readiness",
+  "mode": "static",
+  "writes": "disabled"
+}

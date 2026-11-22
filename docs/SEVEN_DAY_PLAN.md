@@ -54,6 +54,8 @@ This accelerated plan preserves the agreed feature, quality, security, SEO, and 
 - Launch with monitoring for availability, errors, Core Web Vitals, security events, and broken links.
 - Record rollback owner and thresholds; schedule daily launch-week editorial/security checks and weekly dependency/content review.
 
+**Status: launch readiness implemented on 22 November 2026; production remains NO-GO.** The repository now has an executable ownership/domain/mailbox/freeze/rollback gate, an end-to-end HTTP smoke test under production-style headers, a static health contract, a human content-freeze checklist, and a launch/incident/rollback runbook with explicit thresholds. The live platform audit found a healthy protected preview and no recent runtime errors, but the Vercel project is not live, `gtabanglahub.com` is not attached, production environment variables and named operational owners are absent, and the published mailboxes are not verified. Day 7 is complete only after those blockers are resolved, the checklist is signed against an immutable commit, production is promoted, and post-launch smoke checks pass.
+
 ## Non-negotiable acceptance gates
 
 - Every factual news claim links to a primary or clearly identified secondary source.
