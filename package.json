@@ -7,8 +7,11 @@
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
     "build": "ASTRO_TELEMETRY_DISABLED=1 astro check && ASTRO_TELEMETRY_DISABLED=1 astro build",
     "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
+    "preview:secure": "node scripts/serve-dist.mjs",
     "test": "node --test tests/*.test.mjs",
-    "verify": "pnpm test && pnpm build && node scripts/verify-build.mjs"
+    "security": "node scripts/security-audit.mjs",
+    "recovery": "node scripts/backup-restore-drill.mjs",
+    "verify": "pnpm test && pnpm build && node scripts/verify-build.mjs && pnpm security && pnpm recovery"
   },
   "dependencies": {
     "astro": "^7.4.13"

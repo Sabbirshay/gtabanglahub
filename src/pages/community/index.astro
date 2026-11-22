@@ -43,22 +43,5 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <div class="rule-grid"><article><h3>প্রত্যাখ্যাত জমা</h3><p>প্রাথমিক সিদ্ধান্তের ৩০ দিনের মধ্যে ইমেইল ও সংযুক্ত ব্যক্তিগত তথ্য মুছে ফেলার লক্ষ্য।</p></article><article><h3>পর্যালোচনাধীন জমা</h3><p>সর্বোচ্চ ৯০ দিন রাখা হবে; আইনি বা নিরাপত্তা প্রয়োজন ছাড়া সময় বাড়ানো হবে না।</p></article><article><h3>প্রকাশিত অবদান</h3><p>প্রকাশিত তথ্য ও সম্মত কৃতিত্ব সম্পাদকীয় রেকর্ড হিসেবে থাকবে; অপসারণ চাইলে privacy ঠিকানায় অনুরোধ করা যাবে।</p></article><article><h3>নিউজলেটার</h3><p>এখন কোনো signup বা ইমেইল তালিকা নেই। নিশ্চিত opt-in, unsubscribe ও deletion ব্যবস্থা ছাড়া এটি চালু হবে না।</p></article></div>
   </section>
 
-  <script is:inline>
-    (() => {
-      const form = document.querySelector('[data-community-form]');
-      const status = document.querySelector('[data-community-status]');
-      if (!form || !status) return;
-      form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        if (!form.reportValidity()) return;
-        const data = new FormData(form);
-        const kind = String(data.get('kind') || 'কমিউনিটি প্রস্তাব');
-        const destination = kind === 'সংশোধন' ? 'corrections@gtabanglahub.com' : 'community@gtabanglahub.com';
-        const subject = `[GTA Bangla Hub] ${kind}: ${String(data.get('title') || '')}`;
-        const body = [`ধরন: ${kind}`, `বিষয়: ${data.get('title')}`, `উৎস/পাতা: ${data.get('source')}`, `স্পয়লার: ${data.get('spoiler')}`, `কৃতিত্ব: ${data.get('credit')}`, '', 'বিস্তারিত:', String(data.get('details') || '')].join('\n');
-        status.textContent = 'ইমেইল অ্যাপ খোলা হচ্ছে—পাঠানোর আগে প্রাপক ও লেখা যাচাই করুন।';
-        window.location.href = `mailto:${destination}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      });
-    })();
-  </script>
+  <script is:inline src="/scripts/community.js" defer></script>
 </BaseLayout>

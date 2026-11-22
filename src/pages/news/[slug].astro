@@ -14,12 +14,16 @@ const { article } = Astro.props;
 const related = articles.filter((item) => item.slug !== article.slug).slice(0, 3);
 ---
 <BaseLayout title={article.title} description={article.excerpt} path={`/news/${article.slug}/`} type="article" publishedTime={article.isoDate} modifiedTime={article.isoUpdatedDate} author={article.author}>
-  <article class="article-page container">
+  <article class="article-page container" itemscope itemtype="https://schema.org/NewsArticle">
     <Breadcrumbs current={article.title} />
     <header>
       <div class="eyebrow"><span>{article.category}</span>{article.verified && <span class="verified">যাচাইকৃত</span>}</div>
-      <h1>{article.title}</h1>
-      <p class="article-deck">{article.excerpt}</p>
+      <h1 itemprop="headline">{article.title}</h1>
+      <p class="article-deck" itemprop="description">{article.excerpt}</p>
+      <meta itemprop="datePublished" content={article.isoDate} />
+      <meta itemprop="dateModified" content={article.isoUpdatedDate} />
+      <meta itemprop="inLanguage" content="bn-BD" />
+      <meta itemprop="author" content={article.author} />
       <ArticleByline article={article} />
     </header>
     <div class="article-content">
