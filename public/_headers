@@ -1,5 +1,5 @@
 /*
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'; connect-src 'self'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; img-src 'self' data: https://www.rockstargames.com; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'; connect-src 'self'; upgrade-insecure-requests
   Referrer-Policy: strict-origin-when-cross-origin
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY

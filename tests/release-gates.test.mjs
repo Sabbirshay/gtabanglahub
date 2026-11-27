@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 
 const read = (path) => readFile(new URL(path, import.meta.url), 'utf8');
-const [headers, vercelText, workflow, assetPolicy, searchPage, communityPage, databasePage] = await Promise.all([
+const [headers, vercelText, workflow, assetPolicy, searchPage, communityPage, databasePage, homePage, artworkGallery] = await Promise.all([
   read('../public/_headers'),
   read('../vercel.json'),
   read('../.github/workflows/ci.yml'),
@@ -11,6 +11,8 @@ const [headers, vercelText, workflow, assetPolicy, searchPage, communityPage, da
   read('../src/pages/search/index.astro'),
   read('../src/pages/community/index.astro'),
   read('../src/pages/database/index.astro'),
+  read('../src/pages/index.astro'),
+  read('../src/components/OfficialArtworkGallery.astro'),
 ]);
 
 test('deployment CSP permits bundled same-origin scripts without unsafe evaluation', () => {
@@ -41,4 +43,13 @@ test('CI includes the registry audit and the repository has an explicit asset po
   assert.match(workflow, /pnpm audit --audit-level high/);
   assert.match(assetPolicy, /does not bundle Rockstar Games/);
   assert.match(assetPolicy, /source, owner, licence or permission/);
+});
+
+test('official artwork is narrowly allowlisted, attributed, remote, and not bundled', () => {
+  assert.match(homePage, /OfficialArtworkGallery/);
+  assert.equal((artworkGallery.match(/https:\/\/www\.rockstargames\.com\/VI\/_next\/static\/media\//g) ?? []).length, 3);
+  assert.match(artworkGallery, /© Rockstar Games \/ Take-Two Interactive/);
+  assert.match(artworkGallery, /loading="lazy"/);
+  assert.match(headers, /img-src 'self' data: https:\/\/www\.rockstargames\.com/);
+  assert.match(assetPolicy, /not copied into this repository/);
 });

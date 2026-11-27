@@ -1,0 +1,38 @@
+---
+const galleryUrl = 'https://www.rockstargames.com/VI/media/artwork-wallpapers';
+const artwork = [
+  {
+    title: 'Jason and Lucia Rooftop',
+    alt: 'রুফটপে জেসন ও লুসিয়ার অফিসিয়াল GTA VI আর্টওয়ার্ক',
+    src: 'https://www.rockstargames.com/VI/_next/static/media/Jason_Lucia_Rooftop_landscape.0c6p5do~-8~7..jpg?akim=1&imdensity=1&imwidth=1280',
+  },
+  {
+    title: 'Vice City Postcard',
+    alt: 'ভাইস সিটির অফিসিয়াল পোস্টকার্ড আর্টওয়ার্ক',
+    src: 'https://www.rockstargames.com/VI/_next/static/media/Vice_City_Postcard_landscape.0v2njmlk2n-qm.jpg?akim=1&imdensity=1&imwidth=1280',
+  },
+  {
+    title: 'Leonida Keys Postcard',
+    alt: 'লিওনিডা কিজের অফিসিয়াল পোস্টকার্ড আর্টওয়ার্ক',
+    src: 'https://www.rockstargames.com/VI/_next/static/media/Leonida_Keys_Postcard_landscape.05oezf2h--~ed.jpg?akim=1&imdensity=1&imwidth=1280',
+  },
+];
+---
+
+<section class="official-artwork section" aria-labelledby="official-artwork-heading">
+  <div class="container">
+    <div class="section-heading artwork-heading">
+      <div><p class="kicker">অফিসিয়াল আর্টওয়ার্ক</p><h2 id="official-artwork-heading">লিওনিডার রং</h2></div>
+      <a class="text-link" href={galleryUrl} rel="external">Rockstar-এর সম্পূর্ণ গ্যালারি দেখুন</a>
+    </div>
+    <div class="artwork-grid">
+      {artwork.map((item, index) => (
+        <figure class:list={['artwork-card', { wide: index === 0 }]}>
+          <img src={item.src} alt={item.alt} width="1280" height="720" loading="lazy" decoding="async" />
+          <figcaption><strong>{item.title}</strong><span>© Rockstar Games / Take-Two Interactive</span></figcaption>
+        </figure>
+      ))}
+    </div>
+    <p class="artwork-rights">অফিসিয়াল উৎস থেকে সরাসরি লোড করা নির্বাচিত, স্পয়লার-মুক্ত প্রচারণামূলক আর্টওয়ার্ক। GTA Bangla Hub কোনো ছবি পুনরায় হোস্ট বা ডাউনলোড হিসেবে বিতরণ করে না এবং Rockstar Games-এর সঙ্গে অনুমোদিত বা সংযুক্ত নয়। অধিকারধারীর অনুরোধে ছবি সরানো হবে।</p>
+  </div>
+</section>
