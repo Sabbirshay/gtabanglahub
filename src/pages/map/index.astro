@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import regions from '../../data/map-regions.json';
+
+const reviewed = '২১ নভেম্বর ২০২৬';
+---
+
+<BaseLayout title="লিওনিডা অঞ্চল সূচি" description="GTA VI-এর অফিসিয়ালভাবে প্রকাশিত ছয়টি লিওনিডা অঞ্চলের বাংলা, উৎস-যাচাইকৃত স্কিম্যাটিক সূচি।">
+  <section class="page-hero container">
+    <p class="kicker">অফিসিয়াল নাম · স্কিম্যাটিক অবস্থান</p>
+    <h1>লিওনিডা অঞ্চল সূচি</h1>
+    <p>এটি নেভিগেশন ম্যাপ নয়—অফিসিয়ালভাবে প্রকাশিত অঞ্চলগুলো বোঝার একটি স্পয়লার-নিরাপদ সূচি। পিনের দূরত্ব বা অবস্থান গেমের সঠিক ভূগোল দাবি করে না।</p>
+    <div class="data-summary" aria-label="ম্যাপ ডেটার সারাংশ">
+      <div><strong>{regions.length}</strong><span>যাচাইকৃত অঞ্চল</span></div>
+      <div><strong>০</strong><span>অনুমানভিত্তিক পিন</span></div>
+      <div><strong>{reviewed}</strong><span>শেষ সম্পাদকীয় যাচাই</span></div>
+    </div>
+  </section>
+
+  <section class="section container" aria-labelledby="region-heading">
+    <div class="section-heading"><div><p class="kicker">রেফারেন্স ভিউ</p><h2 id="region-heading">অঞ্চল ও উৎস</h2></div><p>নাম নিশ্চিত · সীমানা নয়</p></div>
+    <div class="map-layout">
+      <div class="schematic-map" role="img" aria-label="লিওনিডার ছয়টি নিশ্চিত অঞ্চলের অ-ভৌগোলিক স্কিম্যাটিক">
+        {regions.map((region, index) => <span class="map-pin" style={`--x:${region.position.x};--y:${region.position.y}`} aria-hidden="true"><span>{index + 1}</span></span>)}
+      </div>
+      <div class="region-list">
+        {regions.map((region, index) => (
+          <article class="region-card" id={region.slug}>
+            <header><div><h2>{region.banglaName}</h2><p class="latin-name">{region.name}</p></div><span class="region-index" aria-hidden="true">{index + 1}</span></header>
+            <p>{region.summary}</p>
+            <div class="region-meta"><span>{region.kind}</span><span>স্পয়লার · {region.spoilerLevel}</span><span>অবস্থা · নিশ্চিত</span></div>
+            <footer><p>শেষ যাচাই · <time datetime={region.lastReviewed}>{reviewed}</time></p><a href={region.source.url} rel="noopener noreferrer">{region.source.publisher} উৎস</a></footer>
+          </article>
+        ))}
+      </div>
+    </div>
+    <p class="data-note"><strong>স্বচ্ছতা নোট:</strong> Rockstar-এর প্রকাশিত নাম ও গ্যালারি থেকে অঞ্চল নিশ্চিত করা হয়েছে। প্রকৃত স্থানাঙ্ক, দূরত্ব বা অপ্রকাশিত সেবা অনুমান করা হয়নি।</p>
+  </section>
+</BaseLayout>

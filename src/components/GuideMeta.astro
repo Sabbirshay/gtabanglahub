@@ -1,0 +1,20 @@
+---
+interface GuideMeta {
+  difficulty: string;
+  spoilerLevel: string;
+  readTime: string;
+  isoUpdatedDate: string;
+  updated: string;
+  outcomes: string[];
+}
+const { guide } = Astro.props as { guide: GuideMeta };
+---
+<div class="guide-meta">
+  <dl>
+    <div><dt>উপযোগী</dt><dd>{guide.difficulty}</dd></div>
+    <div><dt>স্পয়লার</dt><dd>{guide.spoilerLevel}</dd></div>
+    <div><dt>পড়তে সময়</dt><dd>{guide.readTime}</dd></div>
+    <div><dt>হালনাগাদ</dt><dd><time datetime={guide.isoUpdatedDate}>{guide.updated}</time></dd></div>
+  </dl>
+  <div class="guide-outcomes"><strong>এই গাইড শেষে</strong><ul>{guide.outcomes.map((outcome) => <li>{outcome}</li>)}</ul></div>
+</div>

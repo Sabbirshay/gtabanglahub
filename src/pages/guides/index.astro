@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GuideCard from '../../components/GuideCard.astro';
+import guides from '../../data/guides.json';
+const categories = [...new Set(guides.map((guide) => guide.category))];
+---
+<BaseLayout title="গাইড" description="বাংলায় GTA VI গাইড—স্পয়লার স্তর, যাচাই অবস্থা, প্রয়োজনীয় সময় ও হালনাগাদের তারিখসহ।">
+  <section class="page-hero container"><p class="kicker">শিখুন নিজের গতিতে</p><h1>বাংলা গাইড</h1><p>প্রতিটি গাইডে প্রয়োজনীয় সময়, উপযোগী স্তর এবং স্পয়লার অবস্থা আগে দেখা যায়। তথ্য বদলালে হালনাগাদের তারিখও বদলায়।</p></section>
+  <nav class="category-nav container" aria-label="গাইডের বিভাগ"><a href="#all">সব গাইড</a>{categories.map((category) => <a href="#all">{category}</a>)}</nav>
+  <section class="section container" id="all"><div class="section-heading"><div><p class="kicker">পথ বেছে নিন</p><h2>যাচাইকৃত গাইড</h2></div><p class="desk-note">স্পয়লার আগে জানুন · নিজের গতিতে পড়ুন</p></div><div class="guide-library">{guides.map((guide) => <GuideCard guide={guide} />)}</div></section>
+  <section class="guide-principles container"><div><p class="kicker">আমাদের পদ্ধতি</p><h2>অনুমান নয়, পুনরাবৃত্তিযোগ্য ধাপ</h2></div><p>প্রতিটি নির্দেশনা এমনভাবে লেখা হয় যেন পাঠক নিজের সেটিংস ও প্রয়োজন অনুযায়ী সিদ্ধান্ত নিতে পারেন। গেমের সংস্করণ বা প্ল্যাটফর্মে পার্থক্য থাকলে সেটি স্পষ্ট করে বলা হয়।</p></section>
+</BaseLayout>

@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import RecordCard from '../../components/RecordCard.astro';
+import records from '../../data/database.json';
+import regions from '../../data/map-regions.json';
+
+const locationRecords = regions.map((region) => ({
+  slug: region.slug,
+  type: 'location' as const,
+  name: region.name,
+  banglaName: region.banglaName,
+  summary: region.summary,
+  status: 'confirmed' as const,
+  spoilerLevel: region.spoilerLevel,
+  lastReviewed: region.lastReviewed,
+  facts: [
+    { label: 'শ্রেণি', value: region.kind, state: 'confirmed' as const },
+    { label: 'সঠিক সীমানা', value: 'অপ্রকাশিত', state: 'unavailable' as const },
+    { label: 'অফিসিয়াল নাম', value: region.name, state: 'confirmed' as const },
+  ],
+  source: region.source,
+}));
+
+type DatabaseItem = {
+  slug: string;
+  type: 'location' | 'character' | 'vehicle' | 'weapon';
+  name: string;
+  banglaName: string;
+  summary: string;
+  status: 'confirmed';
+  spoilerLevel: string;
+  lastReviewed: string;
+  facts: Array<{ label: string; value: string; state: 'confirmed' | 'unknown' | 'unavailable' }>;
+  source: { name: string; publisher: string; url: string };
+};
+const allRecords = [...locationRecords, ...records] as DatabaseItem[];
+const counts = allRecords.reduce<Record<string, number>>((result, item) => {
+  result[item.type] = (result[item.type] ?? 0) + 1;
+  return result;
+}, {});
+const filters = [
+  ['all', 'সব', allRecords.length],
+  ['location', 'লোকেশন', counts.location],
+  ['character', 'চরিত্র', counts.character],
+  ['vehicle', 'যানবাহন', counts.vehicle],
+  ['weapon', 'অস্ত্র', counts.weapon],
+] as const;
+---
+
+<BaseLayout title="যাচাইকৃত GTA VI ডেটাবেস" description="লোকেশন, চরিত্র, যানবাহন ও অস্ত্রের উৎস-যাচাইকৃত বাংলা GTA VI রেফারেন্স ডেটাবেস।">
+  <section class="page-hero container">
+    <p class="kicker">উৎস ছাড়া কোনো দাবি নয়</p>
+    <h1>যাচাইকৃত ডেটাবেস</h1>
+    <p>প্রতিটি রেকর্ডে উৎস, শেষ যাচাই, স্পয়লার স্তর এবং তথ্যের অবস্থা আছে। “অজানা” মানে আমরা নিশ্চিত নই; “অপ্রকাশিত” মানে অফিসিয়াল উৎসে তথ্যটি পাওয়া যায়নি।</p>
+    <div class="data-summary" aria-label="ডেটাবেস সারাংশ">
+      <div><strong>{allRecords.length}</strong><span>মোট রেকর্ড</span></div>
+      <div><strong>৪</strong><span>তথ্য বিভাগ</span></div>
+      <div><strong>১০০%</strong><span>উৎস-সংযুক্ত রেকর্ড</span></div>
+    </div>
+  </section>
+
+  <section class="section container" aria-labelledby="database-heading">
+    <div class="section-heading"><div><p class="kicker">দ্রুত খুঁজুন</p><h2 id="database-heading">রেফারেন্স রেকর্ড</h2></div><p>জাভাস্ক্রিপ্ট ছাড়াও সব রেকর্ড দৃশ্যমান</p></div>
+    <div class="filter-bar" aria-label="ডেটাবেস ফিল্টার" data-filter-controls>
+      {filters.map(([value, label, count], index) => <button type="button" data-filter={value} aria-pressed={index === 0 ? 'true' : 'false'}>{label} · {count}</button>)}
+      <span class="filter-status" role="status" aria-live="polite" data-filter-status>{allRecords.length}টি রেকর্ড দেখানো হচ্ছে</span>
+    </div>
+    <noscript><p class="data-note">ফিল্টার চালাতে জাভাস্ক্রিপ্ট প্রয়োজন, তবে নিচে সব রেকর্ড সম্পূর্ণভাবে পড়া যাবে।</p></noscript>
+    <div class="record-grid" data-record-grid>
+      {allRecords.map((item) => <RecordCard item={item} />)}
+    </div>
+    <div class="database-method">
+      <article><h2>অজানা বনাম অপ্রকাশিত</h2><p><strong>অজানা</strong> কোনো দাবি নিশ্চিত করার মতো তথ্য নেই। <strong>অপ্রকাশিত</strong> অফিসিয়াল উৎসে নির্দিষ্ট তথ্যটি দেওয়া হয়নি। দুটোকেই নিশ্চিত তথ্য হিসেবে ব্যবহার করা যাবে না।</p></article>
+      <article><h2>সংস্করণ-নির্ভর তথ্য</h2><p>Edition benefit হিসেবে প্রকাশিত যানবাহন বা অস্ত্রকে বেস গেমে স্বয়ংক্রিয়ভাবে প্রাপ্য বলা হয়নি। সংস্করণ বদলালে রেকর্ডও নতুন করে যাচাই হবে।</p></article>
+    </div>
+  </section>
+
+  <script is:inline src="/scripts/database.js" defer></script>
+</BaseLayout>

@@ -1,0 +1,27 @@
+---
+const links: Array<readonly [string, string]> = [
+  ['/news/', 'খবর'],
+  ['/guides/', 'গাইড'],
+  ['/map/', 'ম্যাপ'],
+  ['/database/', 'ডেটাবেস'],
+  ['/search/', 'খুঁজুন'],
+];
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="GTA Bangla Hub হোম">
+      <span class="brand-mark" aria-hidden="true">GB</span>
+      <span>GTA <strong>BANGLA</strong> HUB</span>
+    </a>
+    <nav aria-label="প্রধান নেভিগেশন">
+      <ul>
+        {links.map(([href, label]) => (
+          <li><a href={href} aria-current={currentPath.startsWith(href) ? 'page' : undefined}>{label}</a></li>
+        ))}
+      </ul>
+    </nav>
+    <a class="button button-small" href="/about/">আমাদের কথা</a>
+  </div>
+</header>

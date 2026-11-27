@@ -1,0 +1,28 @@
+{
+  "name": "gta-bangla-hub",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 astro check && ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
+    "preview:secure": "node scripts/serve-dist.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "smoke": "node scripts/smoke-test.mjs",
+    "launch:check": "node scripts/launch-readiness.mjs",
+    "security": "node scripts/security-audit.mjs",
+    "recovery": "node scripts/backup-restore-drill.mjs",
+    "verify": "pnpm test && pnpm build && node scripts/verify-build.mjs && pnpm security && pnpm recovery && pnpm smoke"
+  },
+  "dependencies": {
+    "astro": "^7.4.13"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "typescript": "6.0.2"
+  },
+  "engines": {
+    "node": ">=22.23.4"
+  }
+}

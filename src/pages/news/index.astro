@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import articles from '../../data/articles.json';
+---
+<BaseLayout title="খবর" description="GTA VI-এর সর্বশেষ যাচাইকৃত খবর, অফিসিয়াল আপডেট ও বাংলা বিশ্লেষণ।">
+  <section class="news-hero container">
+    <div class="news-hero-title"><p class="kicker">GTA Bangla Hub · নিউজরুম</p><h1>খবর.<br /><em>গুজব নয়।</em></h1></div>
+    <div class="news-hero-intro"><span class="news-edition">লিওনিডা সংস্করণ · ২০২৬</span><p>GTA VI-এর অফিসিয়াল আপডেট, দরকারি ব্যাখ্যা ও স্পয়লার-নিয়ন্ত্রিত গাইড—প্রতিটি দাবি মূল উৎসে যাচাই করা।</p><a href="#standards">আমরা কীভাবে যাচাই করি <span aria-hidden="true">↘</span></a></div>
+  </section>
+  <div class="news-pulse" aria-label="নিউজরুমের বর্তমান অবস্থা"><div class="container"><span><i></i> নিউজরুম সক্রিয়</span><span>{articles.length}টি প্রকাশনা</span><span>সব লেখা মানব-সম্পাদিত</span><span>স্পয়লার লেবেল চালু</span></div></div>
+  <nav class="category-nav container" aria-label="খবরের বিভাগ"><a href="#latest">সব</a><a href="#latest">অফিসিয়াল আপডেট</a><a href="#latest">ফিচার</a><a href="#latest">গাইড</a><a href="#standards">সম্পাদকীয় মান</a></nav>
+  <section class="section news-index container" id="latest"><div class="section-heading"><div><p class="kicker">সর্বশেষ</p><h2>যাচাইকৃত প্রকাশনা</h2></div><p class="desk-note">মানুষের সম্পাদনা · মূল উৎস · দৃশ্যমান হালনাগাদ</p></div><div class="article-grid newsroom-grid">{articles.map((article, index) => <ArticleCard article={article} featured={index === 0} />)}</div></section>
+  <section class="newsroom-standards container" id="standards"><div><p class="kicker">প্রকাশের আগে</p><h2>প্রতিটি লেখা পাঁচ ধাপে যাচাই</h2></div><ol><li><strong>উৎস</strong><span>প্রাথমিক সূত্র অগ্রাধিকার</span></li><li><strong>তথ্য</strong><span>দাবি ও তারিখ মিলিয়ে দেখা</span></li><li><strong>স্পয়লার</strong><span>লেভেল ও নিরাপদ শিরোনাম</span></li><li><strong>ভাষা</strong><span>স্বাভাবিক ও পরিষ্কার বাংলা</span></li><li><strong>সম্পাদনা</strong><span>প্রকাশের আগে মানব পর্যালোচনা</span></li></ol></section>
+</BaseLayout>
